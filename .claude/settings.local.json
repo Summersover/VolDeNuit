@@ -1,19 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch",
-      "Bash(pdftotext -layout \"D:/Project/ARG/Script2.0.pdf\" -)",
-      "Bash(python3 -c ' *)",
-      "Bash(python -c ' *)",
-      "Bash(mutool draw *)",
-      "Bash(python3 -c \"import pymupdf; print\\('ok'\\)\")",
-      "Bash(python3 -c \"import fitz; print\\('fitz ok'\\)\")",
-      "Bash(python3 -c \"import pdfminer; print\\('pdfminer ok'\\)\")",
-      "Bash(python3 -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
-      "Bash(pip3 install *)",
-      "Bash(pip install *)",
-      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
-      "Bash(pdftotext -nopgbrk -enc UTF-8 \"D:/Project/ARG/Script2.0.pdf\" -)"
+      "WebSearch"
     ]
   }
 }
