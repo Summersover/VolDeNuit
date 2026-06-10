@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>深空——都市传说区 - 夜航论坛</title>
+  <title>深空——怪谈区 - 夜航论坛</title>
   <link rel="stylesheet" href="/src/pages/board/deepspace.css" />
 </head>
 <body>
@@ -34,7 +34,6 @@
     </div>
     <div id="nav">
       <ul>
-        <li><a href="/">论坛首页</a></li>
         <li><a href="/board/tower">塔台</a></li>
         <li><a href="/board/lounge">候机室</a></li>
         <li class="current"><a href="/board/deepspace">深空</a></li>
@@ -46,16 +45,14 @@
 
   <!-- ====== 面包屑 ====== -->
   <div id="breadcrumb">
-    <a href="/">夜航论坛</a> <span class="sep">»</span>
-    <a href="/board/deepspace">深空——都市传说区</a>
-    <span id="page-counter">1/29</span>
+    <a href="/board/deepspace">深空——怪谈区</a>
   </div>
 
   <!-- ====== 版块信息栏 ====== -->
   <div id="forum-stats">
-    <span class="stat-item"><b>48</b> 个主题</span>
-    <span class="stat-item"><b>327</b> 篇帖子</span>
-    <span class="stat-item">今日: <b class="highlight">3</b></span>
+    <span class="stat-item"><b>1,286</b> 个主题</span>
+    <span class="stat-item"><b>25,703</b> 篇帖子</span>
+    <span class="stat-item">今日: <b class="highlight">0</b></span>
     <span class="stat-item">最后发表: 2016-09-19</span>
     <span class="stat-item" id="online-count"><b>2</b> 人在线</span>
   </div>
@@ -91,18 +88,7 @@
       </table>
 
       <!-- 分页 -->
-      <div id="pagination">
-        <a href="#" class="disabled">&laquo; 上一页</a>
-        <a href="#" class="page-current">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <span class="page-dots">...</span>
-        <a href="#">8</a>
-        <a href="#">下一页 &raquo;</a>
-        <span class="page-jump">跳转到 <input type="text" maxlength="3" /> 页</span>
-      </div>
+      <div id="pagination"></div>
     </div>
 
     <!-- 右侧：版块信息栏 -->
@@ -129,9 +115,9 @@
         <h3>统计</h3>
         <div class="side-body">
           <ul class="stats-list">
-            <li>主题: <b>48</b></li>
-            <li>帖子: <b>327</b></li>
-            <li>今日: <b>3</b></li>
+            <li>主题: <b>1,286</b></li>
+            <li>帖子: <b>25,703</b></li>
+            <li>今日: <b>0</b></li>
             <li>在线: <b id="sidebar-online">2</b></li>
           </ul>
         </div>
@@ -158,7 +144,7 @@
   <!-- ====== 页脚 ====== -->
   <div id="footer">
     <div class="footer-links">
-      <a href="/">首页</a> · <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
+      <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
       <a href="/board/deepspace">深空</a> · <a href="/board/blindzone">盲区</a>
     </div>
     <div class="footer-copy">
@@ -166,6 +152,9 @@
     </div>
   </div>
 </div>
+
+<!-- ====== 全局页面进度标签 ====== -->
+<div id="page-counter">1/29</div>
 
 <script type="module" src="/src/pages/board/deepspace.ts"></script>
 </body>

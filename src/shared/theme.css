@@ -1,0 +1,44 @@
+/* ====== 夜航论坛 · 版块主题色 ======
+ * 四个版块页面颜色依次加深：
+ *   塔台（最亮）→ 候机室 → 深空 → 盲区（最暗）
+ *
+ * 每个版块的 CSS 文件在 :root 中覆写这些变量值即可。
+ * 未定义的变量回退到深空级（默认）。
+ * ======================================== */
+
+:root {
+  /* ---- 背景层 ---- */
+  --bg-page: #0B0F15;
+  --bg-container: #151B24;
+  --bg-header: #1A2533;
+  --bg-nav: #131B26;
+  --bg-sidebox: #151E2C;
+  --bg-table-alt: #0E1622;
+  --bg-input: #1A2533;
+
+  /* ---- 边框 ---- */
+  --border-color: #2A3A4A;
+  --border-light: #1E2A3A;
+
+  /* ---- 文字 ---- */
+  --text-primary: #B8C4D0;
+  --text-secondary: #7A8A9A;
+  --text-dim: #4A5A6A;
+  --text-link: #7BA7D0;
+  --text-gold: #E8DCC4;
+  --text-highlight: #E0B040;
+
+  /* ---- 特殊 ---- */
+  --color-hot: #B8A87A;
+  --color-hot-bg: #4A3A2A;
+  --color-sticky: #6A8A9A;
+  --color-new: #6AAA6A;
+
+  /* ---- 滚动条 ---- */
+  --scrollbar-track: #111923;
+  --scrollbar-thumb: #2A3A4A;
+  --scrollbar-thumb-hover: #3A5A6A;
+
+  /* ---- 弹窗遮罩 ---- */
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+}

@@ -66,11 +66,6 @@ const NORMAL_SEARCHES: SearchEntry[] = [
     label: 'beacon_holder的个人主页',
   },
   {
-    keywords: ['霄汉'],
-    route: '/user/beacon_holder',
-    label: '站长的个人主页',
-  },
-  {
     keywords: ['Vega'],
     route: '/search/vega-results',
     label: 'Vega出现过的帖子列表',

@@ -7,7 +7,7 @@ const PREFIX = 'nf_'
  * 篡改者修改 v 后无法伪造匹配的 c
  */
 function checksum(key: string, val: unknown): string {
-  return btoa(key + ':' + JSON.stringify(val))
+  return btoa(encodeURIComponent(key + ':' + JSON.stringify(val)))
 }
 
 /**
