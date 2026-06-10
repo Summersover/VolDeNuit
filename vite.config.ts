@@ -8,6 +8,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        deepspace: resolve(__dirname, 'board/deepspace.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',
