@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>深空——怪谈区 - 夜航论坛</title>
-  <link rel="stylesheet" href="/src/pages/board/deepspace.css" />
+  <title>候机室——水区 - 夜航论坛</title>
+  <link rel="stylesheet" href="/src/pages/board/lounge.css" />
 </head>
 <body>
 
@@ -19,7 +19,6 @@
       <div id="header-search">
         <input type="text" id="search-input" placeholder="搜索帖子、用户…" maxlength="50" />
         <button id="search-btn">搜索</button>
-        <!-- ====== 搜索下拉面板 ====== -->
         <div id="search-panel" class="hidden">
           <div id="search-history">
             <div class="panel-header">搜索历史 <a href="#" id="clear-history">清空</a></div>
@@ -35,8 +34,8 @@
     <div id="nav">
       <ul>
         <li><a href="/board/tower">塔台</a></li>
-        <li><a href="/board/lounge">候机室</a></li>
-        <li class="current"><a href="/board/deepspace">深空</a></li>
+        <li class="current"><a href="/board/lounge">候机室</a></li>
+        <li><a href="/board/deepspace">深空</a></li>
         <li><a href="/board/blindzone">盲区</a></li>
       </ul>
       <span id="nav-welcome">欢迎您，<strong>访客</strong></span>
@@ -45,23 +44,21 @@
 
   <!-- ====== 面包屑 ====== -->
   <div id="breadcrumb">
-    <a href="/board/deepspace">深空——怪谈区</a>
+    <a href="/board/lounge">候机室——水区</a>
   </div>
 
   <!-- ====== 版块信息栏 ====== -->
   <div id="forum-stats">
-    <span class="stat-item"><b>1,286</b> 个主题</span>
-    <span class="stat-item"><b>25,703</b> 篇帖子</span>
+    <span class="stat-item"><b>21,286</b> 个主题</span>
+    <span class="stat-item"><b>184,273</b> 篇帖子</span>
     <span class="stat-item">今日: <b class="highlight">0</b></span>
-    <span class="stat-item">最后发表: 2016-09-29</span>
+    <span class="stat-item">最后发表: 2016-09-30</span>
     <span class="stat-item" id="online-count"><b>2</b> 人在线</span>
   </div>
 
   <!-- ====== 主体区域 ====== -->
   <div id="main">
-    <!-- 左侧：帖子列表 -->
     <div id="thread-list-container">
-      <!-- 排序/筛选工具栏 -->
       <div id="toolbar">
         <span class="sort-options">
           排序: <a href="#" class="active">最后回复</a> / <a href="#">发布时间</a> / <a href="#">回复数量</a>
@@ -71,7 +68,6 @@
         </span>
       </div>
 
-      <!-- 帖子表格 -->
       <table id="thread-table" cellspacing="0" cellpadding="0">
         <thead>
           <tr>
@@ -87,17 +83,15 @@
         </tbody>
       </table>
 
-      <!-- 分页 -->
       <div id="pagination"></div>
     </div>
 
-    <!-- 右侧：版块信息栏 -->
     <div id="sidebar">
       <div class="side-box">
         <h3>本版规则</h3>
         <div class="side-body">
-          <p>欢迎来到深空。这里讨论一切都市传说、未解之谜、灵异事件。</p>
-          <p class="rule-warn">请理性讨论，勿传播未经证实的消息。</p>
+          <p>候机室——论坛水区。闲聊灌水、日常吐槽、心情分享，禁止人身攻击。</p>
+          <p class="rule-warn">请友善讨论，勿引战。</p>
         </div>
       </div>
 
@@ -115,8 +109,8 @@
         <h3>统计</h3>
         <div class="side-body">
           <ul class="stats-list">
-            <li>主题: <b>1,286</b></li>
-            <li>帖子: <b>25,703</b></li>
+            <li>主题: <b>21,286</b></li>
+            <li>帖子: <b>184,273</b></li>
             <li>今日: <b>0</b></li>
             <li>在线: <b id="sidebar-online">2</b></li>
           </ul>
@@ -144,7 +138,8 @@
   <!-- ====== 页脚 ====== -->
   <div id="footer">
     <div class="footer-links">
-      <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
+      <a href="/board/deepspace">深空</a> · <a href="/board/tower">塔台</a>
+        <li class="current"><a href="/board/lounge">候机室</a> ·
       <a href="/board/deepspace">深空</a> · <a href="/board/blindzone">盲区</a>
     </div>
     <div class="footer-copy">
@@ -154,8 +149,8 @@
 </div>
 
 <!-- ====== 全局页面进度标签 ====== -->
-<div id="page-counter">1/29</div>
+<div id="page-counter">2/29</div>
 
-<script type="module" src="/src/pages/board/deepspace.ts"></script>
+<script type="module" src="/src/pages/board/lounge.ts"></script>
 </body>
 </html>

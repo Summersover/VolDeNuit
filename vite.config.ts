@@ -9,6 +9,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         deepspace: resolve(__dirname, 'board/deepspace.html'),
+        tower: resolve(__dirname, 'board/tower.html'),
+        lounge: resolve(__dirname, 'board/lounge.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

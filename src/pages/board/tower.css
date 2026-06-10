@@ -1,7 +1,7 @@
 /* ============================================================
-   夜航论坛 - 深空版块 (暗色 · 夜航主题)
-   整体配色：深夜蓝黑基调 · 低对比度 · 暖金点缀
-   灵感：2014 era Discuz! 暗色风格 · 飞行仪表盘氛围
+   夜航论坛 - 塔台版块（亮色 · 夜航主题)
+   整体配色：深夜蓝灰基调 · 较高对比度 · 控制室灯光感
+   灵感：2014 era Discuz! 亮色风格 · 塔台指挥氛围
    ============================================================ */
 
 /* ---- Reset & Base ---- */
@@ -20,14 +20,14 @@ html {
 
 body {
   font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, Arial, sans-serif;
-  background: #0B0F15;
-  color: #B8C4D0;
+  background: #1A2230;
+  color: #C8D4E0;
   line-height: 1.6;
   min-height: 100vh;
 }
 
 a {
-  color: #7BA7D0;
+  color: #8AB7E0;
   text-decoration: none;
 }
 
@@ -37,7 +37,7 @@ a:hover {
 }
 
 a:visited {
-  color: #5A7A96;
+  color: #6A8AA6;
 }
 
 ul {
@@ -51,7 +51,7 @@ ul {
   min-width: 800px;
   min-height: 100vh;
   margin: 0 auto;
-  background: #151B24;
+  background: #232D3D;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -59,8 +59,8 @@ ul {
 
 /* ---- Header ---- */
 #header {
-  background: linear-gradient(180deg, #0F1A2E 0%, #14233D 40%, #1A2D4A 100%);
-  border-bottom: 1px solid #2A4060;
+  background: linear-gradient(180deg, #172438 0%, #1E2E48 40%, #243858 100%);
+  border-bottom: 1px solid #3A5A7A;
 }
 
 #header-top {
@@ -86,7 +86,7 @@ ul {
 
 .logo-sub {
   font-size: 13px;
-  color: #5A7A96;
+  color: #6A8AA6;
   font-weight: normal;
 }
 
@@ -102,11 +102,11 @@ ul {
   width: 200px;
   height: 28px;
   padding: 0 8px;
-  border: 1px solid #2A4060;
+  border: 1px solid #3A5A7A;
   border-right: none;
   border-radius: 3px 0 0 3px;
-  background: #1A2535;
-  color: #B8C4D0;
+  background: #263845;
+  color: #C8D4E0;
   font-size: 13px;
   font-family: inherit;
   outline: none;
@@ -114,21 +114,21 @@ ul {
 }
 
 #header-search input::placeholder {
-  color: #4A5A6A;
+  color: #5A6A7A;
 }
 
 #header-search input:focus {
-  background: #1E2A3A;
-  border-color: #4A7A9A;
+  background: #2A3A4E;
+  border-color: #5A8AAA;
 }
 
 #header-search button {
   height: 28px;
   padding: 0 14px;
-  border: 1px solid #2A4060;
+  border: 1px solid #3A5A7A;
   border-radius: 0 3px 3px 0;
-  background: linear-gradient(180deg, #2A4060 0%, #1A2D4A 100%);
-  color: #B8C4D0;
+  background: linear-gradient(180deg, #3A5A7A 0%, #243858 100%);
+  color: #C8D4E0;
   font-size: 13px;
   font-family: inherit;
   cursor: pointer;
@@ -137,7 +137,7 @@ ul {
 }
 
 #header-search button:hover {
-  background: linear-gradient(180deg, #3A5A7A 0%, #2A4060 100%);
+  background: linear-gradient(180deg, #3A5A7A 0%, #3A5A7A 100%);
   color: #E8DCC4;
 }
 
@@ -148,8 +148,8 @@ ul {
   align-items: center;
   padding: 0 24px;
   height: 34px;
-  background: linear-gradient(180deg, #0D1520 0%, #111B2A 100%);
-  border-top: 1px solid #1A2D4A;
+  background: linear-gradient(180deg, #16202E 0%, #1A2638 100%);
+  border-top: 1px solid #243858;
 }
 
 #nav ul {
@@ -167,10 +167,10 @@ ul {
   padding: 0 18px;
   height: 34px;
   line-height: 34px;
-  color: #6A8AAA;
+  color: #7A9ABA;
   font-size: 13px;
   font-weight: bold;
-  border-right: 1px solid #1A2D4A;
+  border-right: 1px solid #243858;
   text-shadow: none;
   transition: color 0.12s, background 0.12s;
 }
@@ -183,20 +183,20 @@ ul {
 
 #nav ul li.current a {
   color: #E8DCC4;
-  background: #1A2D4A;
-  border-color: #2A4060;
+  background: #243858;
+  border-color: #3A5A7A;
   text-shadow: none;
   border-radius: 0;
 }
 
 #nav-welcome {
-  color: #4A6A7A;
+  color: #5A7A8A;
   font-size: 12px;
   padding-right: 4px;
 }
 
 #nav-welcome strong {
-  color: #8AAAC0;
+  color: #9ABAD0;
   font-weight: normal;
 }
 
@@ -204,26 +204,26 @@ ul {
 #breadcrumb {
   padding: 8px 24px;
   font-size: 13px;
-  color: #5A7A8A;
-  background: #111923;
-  border-bottom: 1px solid #1E2A3A;
+  color: #7A9AAA;
+  background: #192734;
+  border-bottom: 1px solid #2A3A4E;
   display: flex;
   align-items: center;
 }
 
 #breadcrumb .sep {
   margin: 0 6px;
-  color: #3A5A6A;
+  color: #5A7A8A;
 }
 
 #breadcrumb a {
-  color: #6A8AAA;
+  color: #7A9ABA;
 }
 
 #page-counter {
   margin-left: auto;
   font-size: 12px;
-  color: #3A5A6A;
+  color: #5A7A8A;
   font-family: Tahoma, Arial, sans-serif;
   letter-spacing: 1px;
 }
@@ -233,14 +233,14 @@ ul {
   display: flex;
   gap: 20px;
   padding: 8px 24px;
-  background: #111923;
-  border-bottom: 1px solid #1E2A3A;
+  background: #192734;
+  border-bottom: 1px solid #2A3A4E;
   font-size: 12px;
-  color: #5A7A8A;
+  color: #7A9AAA;
 }
 
 .stat-item b {
-  color: #8AAAC0;
+  color: #9ABAD0;
   font-weight: bold;
 }
 
@@ -267,15 +267,15 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 6px 10px;
-  background: #1A2533;
-  border: 1px solid #2A3A4A;
+  background: #263343;
+  border: 1px solid #3A4E62;
   border-bottom: none;
   font-size: 12px;
-  color: #5A7A8A;
+  color: #7A9AAA;
 }
 
 .sort-options a {
-  color: #5A7A8A;
+  color: #7A9AAA;
   margin: 0 2px;
 }
 
@@ -285,7 +285,7 @@ ul {
 }
 
 .filter-options a {
-  color: #5A7A8A;
+  color: #7A9AAA;
   margin: 0 2px;
 }
 
@@ -302,16 +302,16 @@ ul {
 #thread-table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #2A3A4A;
+  border: 1px solid #3A4E62;
   table-layout: fixed;
 }
 
 #thread-table thead th {
   padding: 7px 6px;
-  background: linear-gradient(180deg, #1A2A3A 0%, #152233 100%);
-  border-bottom: 1px solid #2A4060;
+  background: linear-gradient(180deg, #243446 0%, #1E2E40 100%);
+  border-bottom: 1px solid #3A5A7A;
   font-size: 12px;
-  color: #6A8AAA;
+  color: #7A9ABA;
   text-align: left;
   white-space: nowrap;
   font-weight: bold;
@@ -325,20 +325,20 @@ ul {
 
 /* ---- Thread Rows ---- */
 #thread-table tbody tr {
-  border-bottom: 1px solid #1E2A3A;
+  border-bottom: 1px solid #2A3A4E;
   transition: background 0.12s;
 }
 
 #thread-table tbody tr:nth-child(even) {
-  background: #131B26;
+  background: #1C2838;
 }
 
 #thread-table tbody tr:nth-child(odd) {
-  background: #151B24;
+  background: #232D3D;
 }
 
 #thread-table tbody tr:hover {
-  background: #1A2635;
+  background: #263848;
 }
 
 #thread-table tbody td {
@@ -362,7 +362,7 @@ ul {
 }
 
 .td-status .icon-sticky {
-  color: #5A7A8A;
+  color: #7A9AAA;
   font-size: 14px;
 }
 
@@ -372,7 +372,7 @@ ul {
 }
 
 .thread-link {
-  color: #7BA7D0;
+  color: #8AB7E0;
   font-weight: normal;
   cursor: pointer;
 }
@@ -383,7 +383,7 @@ ul {
 }
 
 .thread-link.visited {
-  color: #4A6A7A;
+  color: #5A7A8A;
 }
 
 .thread-link.clickable-highlight {
@@ -396,7 +396,7 @@ ul {
 }
 
 .thread-sticky .thread-link {
-  color: #6A8A9A;
+  color: #7A9AAA;
   font-weight: bold;
 }
 
@@ -408,7 +408,7 @@ ul {
 .thread-meta {
   display: block;
   font-size: 11px;
-  color: #4A5A6A;
+  color: #5A6A7A;
   margin-top: 1px;
 }
 
@@ -416,7 +416,7 @@ ul {
   display: inline-block;
   font-size: 11px;
   background: #3A4A5A;
-  color: #B8C4D0;
+  color: #C8D4E0;
   padding: 0 5px;
   border-radius: 2px;
   margin-right: 4px;
@@ -443,7 +443,7 @@ ul {
 .td-author {
   text-align: center !important;
   font-size: 12px !important;
-  color: #5A7A8A;
+  color: #7A9AAA;
 }
 
 /* Replies column */
@@ -454,7 +454,7 @@ ul {
 }
 
 .td-replies .reply-num {
-  color: #8AAAC0;
+  color: #9ABAD0;
   font-weight: bold;
 }
 
@@ -463,11 +463,11 @@ ul {
   text-align: right !important;
   padding-right: 10px !important;
   font-size: 11px !important;
-  color: #4A5A6A;
+  color: #5A6A7A;
 }
 
 .td-lastpost .last-author {
-  color: #5A7A8A;
+  color: #7A9AAA;
 }
 
 /* ---- Pagination ---- */
@@ -483,26 +483,26 @@ ul {
 #pagination a {
   display: inline-block;
   padding: 3px 9px;
-  border: 1px solid #2A3A4A;
+  border: 1px solid #3A4E62;
   border-radius: 3px;
-  color: #7BA7D0;
-  background: #1A2533;
+  color: #8AB7E0;
+  background: #263343;
   font-family: Tahoma, Arial, sans-serif;
   transition: none;
 }
 
 #pagination a:hover {
-  border-color: #4A7A9A;
-  background: #1E2A3A;
+  border-color: #5A8AAA;
+  background: #2A3A4E;
   text-decoration: none;
 }
 
 #pagination .page-current {
   display: inline-block;
   padding: 3px 9px;
-  border: 1px solid #4A7A9A;
+  border: 1px solid #5A8AAA;
   border-radius: 3px;
-  background: #2A4060;
+  background: #3A5A7A;
   color: #E8DCC4;
   font-weight: bold;
   font-family: Tahoma, Arial, sans-serif;
@@ -511,17 +511,17 @@ ul {
 #pagination .disabled {
   display: inline-block;
   padding: 3px 9px;
-  border: 1px solid #1E2A3A;
+  border: 1px solid #2A3A4E;
   border-radius: 3px;
   color: #3A4A5A;
-  background: #131B26;
+  background: #1C2838;
   cursor: default;
   font-family: Tahoma, Arial, sans-serif;
 }
 
 #pagination .page-dots {
   padding: 0 4px;
-  color: #4A5A6A;
+  color: #5A6A7A;
 }
 
 /* ---- Sidebar ---- */
@@ -534,23 +534,23 @@ ul {
 }
 
 .side-box {
-  border: 1px solid #2A3A4A;
-  background: #131B26;
+  border: 1px solid #3A4E62;
+  background: #1C2838;
 }
 
 .side-box h3 {
   padding: 6px 10px;
   font-size: 13px;
-  color: #8AAAC0;
-  background: linear-gradient(180deg, #1A2A3A 0%, #152233 100%);
-  border-bottom: 1px solid #2A3A4A;
+  color: #9ABAD0;
+  background: linear-gradient(180deg, #243446 0%, #1E2E40 100%);
+  border-bottom: 1px solid #3A4E62;
   font-weight: bold;
 }
 
 .side-body {
   padding: 8px 10px;
   font-size: 12px;
-  color: #5A7A8A;
+  color: #7A9AAA;
   line-height: 1.8;
 }
 
@@ -565,7 +565,7 @@ ul {
 
 .mod-list li {
   padding: 2px 0;
-  color: #6A8AAA;
+  color: #7A9ABA;
 }
 
 .mod-icon {
@@ -581,7 +581,7 @@ ul {
 }
 
 .stats-list li b {
-  color: #8AAAC0;
+  color: #9ABAD0;
 }
 
 /* ---- Search Panel ---- */
@@ -590,9 +590,9 @@ ul {
   top: 100%;
   right: 0;
   width: 320px;
-  background: #1A2535;
-  border: 1px solid #2A4060;
-  border-top: 2px solid #4A7A9A;
+  background: #263845;
+  border: 1px solid #3A5A7A;
+  border-top: 2px solid #5A8AAA;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   font-size: 13px;
@@ -601,17 +601,17 @@ ul {
 
 .panel-header {
   padding: 8px 12px;
-  background: #1A2A3A;
-  border-bottom: 1px solid #2A3A4A;
+  background: #243446;
+  border-bottom: 1px solid #3A4E62;
   font-size: 12px;
-  color: #6A8A9A;
+  color: #7A9AAA;
   display: flex;
   justify-content: space-between;
 }
 
 .panel-header a {
   font-size: 12px;
-  color: #5A7A8A;
+  color: #7A9AAA;
 }
 
 .panel-header a:hover {
@@ -622,30 +622,30 @@ ul {
 #result-body {
   padding: 8px 12px;
   cursor: pointer;
-  border-bottom: 1px solid #1E2A3A;
+  border-bottom: 1px solid #2A3A4E;
   transition: background 0.1s;
 }
 
 #history-list li:hover,
 #result-body:hover {
-  background: #1E2A3A;
+  background: #2A3A4E;
 }
 
 #history-list li .history-term {
-  color: #8AAAC0;
+  color: #9ABAD0;
 }
 
 #result-body {
-  color: #7BA7D0;
+  color: #8AB7E0;
 }
 
 #result-body .result-label {
-  color: #B8C4D0;
+  color: #C8D4E0;
 }
 
 #result-body .result-type {
   font-size: 11px;
-  color: #4A5A6A;
+  color: #5A6A7A;
   margin-left: 6px;
 }
 
@@ -668,9 +668,9 @@ ul {
 
 #password-modal {
   width: 380px;
-  background: #1A2535;
-  border: 1px solid #2A4060;
-  border-top: 2px solid #4A7A9A;
+  background: #263845;
+  border: 1px solid #3A5A7A;
+  border-top: 2px solid #5A8AAA;
   border-radius: 6px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -690,7 +690,7 @@ ul {
 
 .modal-header {
   padding: 14px 20px;
-  background: linear-gradient(180deg, #1A2D4A 0%, #0F1A2E 100%);
+  background: linear-gradient(180deg, #243858 0%, #172438 100%);
   color: #E8DCC4;
   font-size: 15px;
   font-weight: bold;
@@ -702,7 +702,7 @@ ul {
 
 .modal-body p {
   font-size: 13px;
-  color: #6A8A9A;
+  color: #7A9AAA;
   margin-bottom: 12px;
 }
 
@@ -710,10 +710,10 @@ ul {
   width: 100%;
   height: 36px;
   padding: 0 12px;
-  border: 1px solid #2A4060;
+  border: 1px solid #3A5A7A;
   border-radius: 4px;
-  background: #0F1A2E;
-  color: #B8C4D0;
+  background: #172438;
+  color: #C8D4E0;
   font-size: 14px;
   font-family: inherit;
   outline: none;
@@ -721,7 +721,7 @@ ul {
 }
 
 #password-input:focus {
-  border-color: #4A7A9A;
+  border-color: #5A8AAA;
   box-shadow: 0 0 0 2px rgba(74, 122, 154, 0.15);
 }
 
@@ -743,8 +743,8 @@ ul {
 
 .modal-footer {
   padding: 12px 20px;
-  background: #111923;
-  border-top: 1px solid #2A3A4A;
+  background: #192734;
+  border-top: 1px solid #3A4E62;
   display: flex;
   justify-content: flex-end;
   gap: 8px;
@@ -752,7 +752,7 @@ ul {
 
 .modal-footer button {
   padding: 7px 20px;
-  border: 1px solid #2A4060;
+  border: 1px solid #3A5A7A;
   border-radius: 4px;
   font-size: 13px;
   font-family: inherit;
@@ -761,42 +761,42 @@ ul {
 }
 
 #password-cancel {
-  background: #1A2535;
-  color: #6A8A9A;
+  background: #263845;
+  color: #7A9AAA;
 }
 
 #password-cancel:hover {
-  background: #1E2A3A;
+  background: #2A3A4E;
 }
 
 #password-confirm {
-  background: linear-gradient(180deg, #2A4060 0%, #1A2D4A 100%);
+  background: linear-gradient(180deg, #3A5A7A 0%, #243858 100%);
   color: #E8DCC4;
   border-color: #3A5A7A;
 }
 
 #password-confirm:hover {
-  background: linear-gradient(180deg, #3A5A7A 0%, #2A4060 100%);
+  background: linear-gradient(180deg, #3A5A7A 0%, #3A5A7A 100%);
 }
 
 /* ---- Footer ---- */
 #footer {
   padding: 16px 24px;
-  background: #111923;
-  border-top: 1px solid #1E2A3A;
+  background: #192734;
+  border-top: 1px solid #2A3A4E;
   text-align: center;
   font-size: 12px;
-  color: #4A5A6A;
+  color: #5A6A7A;
   line-height: 2;
 }
 
 .footer-links a {
-  color: #5A7A8A;
+  color: #7A9AAA;
   margin: 0 2px;
 }
 
 .footer-copy {
-  color: #3A5A6A;
+  color: #5A7A8A;
 }
 
 /* ---- Utility ---- */
@@ -810,16 +810,16 @@ ul {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111923;
+  background: #192734;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A3A4A;
+  background: #3A4E62;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3A5A6A;
+  background: #5A7A8A;
 }
 
 /* ====== 全局页面进度标签 ====== */
