@@ -1,0 +1,939 @@
+/* ============================================================
+   夜航论坛 - 帖子详情页 · 编辑记录（页面⑬）
+   配色：深夜蓝黑基调 · 深色背景 · 档案还原氛围
+   对应解谜链序号 ⑤，右下角显示 13/30
+   ============================================================ */
+
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, Arial, sans-serif;
+  background: #0B0F15;
+  color: #B8C4D0;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+a {
+  color: #7BA7D0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #E0B040;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #5A7A96;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---- Layout ---- */
+#container {
+  width: 100%;
+  max-width: 1280px;
+  min-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #151B24;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Header ---- */
+#header {
+  background: linear-gradient(180deg, #0F1A2E 0%, #14233D 40%, #1A2D4A 100%);
+  border-bottom: 1px solid #2A4060;
+}
+
+#header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px 12px;
+}
+
+#logo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.logo-night {
+  font-size: 28px;
+  font-weight: bold;
+  color: #E8DCC4;
+  text-shadow: 0 0 12px rgba(200, 170, 120, 0.15);
+  letter-spacing: 4px;
+}
+
+.logo-sub {
+  font-size: 13px;
+  color: #5A7A96;
+  font-weight: normal;
+}
+
+/* ---- Header Search ---- */
+#header-search {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+#header-search input {
+  width: 200px;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid #2A4060;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  background: #1A2535;
+  color: #B8C4D0;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#header-search input::placeholder {
+  color: #4A5A6A;
+}
+
+#header-search input:focus {
+  background: #1E2A3A;
+  border-color: #4A7A9A;
+}
+
+#header-search button {
+  height: 28px;
+  padding: 0 14px;
+  border: 1px solid #2A4060;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #2A4060 0%, #1A2D4A 100%);
+  color: #B8C4D0;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+#header-search button:hover {
+  background: linear-gradient(180deg, #3A5A7A 0%, #2A4060 100%);
+  color: #E8DCC4;
+}
+
+/* ---- Navigation ---- */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 34px;
+  background: linear-gradient(180deg, #0D1520 0%, #111B2A 100%);
+  border-top: 1px solid #1A2D4A;
+}
+
+#nav ul {
+  display: flex;
+  gap: 0;
+  height: 100%;
+}
+
+#nav ul li {
+  position: relative;
+}
+
+#nav ul li a {
+  display: block;
+  padding: 0 18px;
+  height: 34px;
+  line-height: 34px;
+  color: #6A8AAA;
+  font-size: 13px;
+  font-weight: bold;
+  border-right: 1px solid #1A2D4A;
+  text-shadow: none;
+  transition: color 0.12s, background 0.12s;
+}
+
+#nav ul li a:hover {
+  color: #E0B040;
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+}
+
+#nav ul li.current a {
+  color: #E8DCC4;
+  background: #1A2D4A;
+  border-color: #2A4060;
+  border-radius: 0;
+}
+
+#nav-welcome {
+  color: #4A6A7A;
+  font-size: 12px;
+  padding-right: 4px;
+}
+
+#nav-welcome strong {
+  color: #8AAAC0;
+  font-weight: normal;
+}
+
+/* ---- Breadcrumb ---- */
+#breadcrumb {
+  padding: 8px 24px;
+  font-size: 13px;
+  color: #5A7A8A;
+  background: #111923;
+  border-bottom: 1px solid #1E2A3A;
+  display: flex;
+  align-items: center;
+}
+
+#breadcrumb .sep {
+  margin: 0 8px;
+  color: #3A5A6A;
+}
+
+#breadcrumb a {
+  color: #6A8AAA;
+}
+
+#breadcrumb .current {
+  color: #8AAAC0;
+}
+
+/* ---- Main Content ---- */
+#main {
+  flex: 1;
+  padding: 16px 24px 24px;
+}
+
+/* ============================================================
+   帖子区域
+   ============================================================ */
+
+#post-area {
+  background: #131B26;
+  border: 1px solid #2A3A4A;
+  margin-bottom: 12px;
+}
+
+#post-header {
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid #2A3A4A;
+}
+
+#post-title {
+  font-size: 20px;
+  color: #E8DCC4;
+  font-weight: bold;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+#post-meta {
+  font-size: 11px;
+  color: #5A7A8A;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+#post-meta a {
+  color: #6A8AAA;
+}
+
+#post-meta a:hover {
+  color: #E0B040;
+}
+
+.meta-sep {
+  margin: 0 8px;
+  color: #2A3A4A;
+}
+
+/* ---- Thread Toolbar ---- */
+.thread-toolbar {
+  background: #0F1722;
+  border-bottom: 1px solid #2A3A4A;
+  padding: 6px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 11px;
+}
+
+.thread-toolbar a {
+  color: #5A7A8A;
+  text-decoration: none;
+}
+
+.thread-toolbar a:hover {
+  color: #E0B040;
+}
+
+.toolbar-spacer {
+  flex: 1;
+}
+
+/* ============================================================
+   Postbit — 经典左右布局 (vBulletin/IP.Board 风格)
+   ============================================================ */
+
+.post {
+  border-bottom: 1px solid #1E2A3A;
+}
+
+.post:last-of-type {
+  border-bottom: none;
+}
+
+/* ---- Flex 容器 ---- */
+.post-inner {
+  display: flex;
+  min-height: 150px;
+}
+
+/* ============================================================
+   左侧：用户信息栏 (postbit)
+   ============================================================ */
+
+.post-user {
+  width: 170px;
+  flex-shrink: 0;
+  background: #0E1621;
+  border-right: 1px solid #2A3A4A;
+  padding: 14px 8px 12px;
+  text-align: center;
+  font-size: 11px;
+  color: #4A5A6A;
+}
+
+/* ---- 头像（vBulletin 风格 SVH 人形默认头像） ---- */
+.pui-avatar {
+  margin: 0 auto 8px;
+  display: block;
+  width: 72px;
+  height: 72px;
+}
+
+.pui-avatar-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid #1A2D4A;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  display: block;
+  object-fit: cover;
+}
+
+/* ---- 用户名 ---- */
+.pui-name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #7BA7D0;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ---- 自定义头衔 ---- */
+.pui-usertitle {
+  font-size: 10px;
+  color: #5A7A8A;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+/* ---- 等级徽章 ---- */
+.pui-level {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: bold;
+  color: #E8DCC4;
+  background: linear-gradient(180deg, #3A5A7A, #1A3A5A);
+  padding: 1px 7px;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+/* ---- 勋章/标识 ---- */
+.pui-badges {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  margin-bottom: 4px;
+}
+
+.badge-op {
+  font-size: 9px;
+  font-weight: bold;
+  color: #8A9A5A;
+  background: rgba(138, 154, 90, 0.15);
+  padding: 1px 6px;
+  line-height: 1.5;
+}
+
+/* ---- 统计 ---- */
+.pui-stats {
+  text-align: left;
+  font-size: 10px;
+  color: #4A5A6A;
+  line-height: 1.9;
+  border-top: 1px solid #1E2A3A;
+  padding-top: 6px;
+  margin-top: 4px;
+}
+
+.pui-stats div {
+  white-space: nowrap;
+}
+
+.pui-stats span {
+  color: #6A8AAA;
+  font-weight: 500;
+}
+
+.pui-online {
+  margin-top: 2px;
+}
+
+/* ---- 在线状态点 ---- */
+.online-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #4A8A5A;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+.offline-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #3A4A5A;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+/* ============================================================
+   右侧：帖子内容
+   ============================================================ */
+
+.post-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- 顶栏：楼层号 + 时间 ---- */
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 6px;
+  font-size: 10px;
+  color: #4A5A6A;
+  border-bottom: 1px solid #1E2A3A;
+}
+
+.postnum {
+  font-weight: bold;
+  color: #3A4A5A;
+}
+
+.postdate {
+  color: #4A5A6A;
+}
+
+/* ---- 正文 ---- */
+.post-body {
+  padding: 14px 20px 10px;
+  font-size: 13.5px;
+  line-height: 2;
+  color: #B8C4D0;
+  flex: 1;
+}
+
+.post-body p {
+  margin-bottom: 10px;
+  text-indent: 2em;
+}
+
+.post-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* 线索高亮（地窖等关键词） */
+.post-body .clue-highlight {
+  color: #D0A040;
+  font-weight: bold;
+}
+
+/* Photo Grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.photo-placeholder {
+  background: #0F1A2E;
+  border: 1px solid #2A3A4A;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+  transition: background 0.12s;
+}
+
+.photo-placeholder:hover {
+  background: #1A2A3A;
+  border-color: #3A5A6A;
+}
+
+.photo-icon {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.photo-caption {
+  font-size: 11px;
+  color: #5A7A8A;
+  text-indent: 0;
+}
+
+/* ---- 底部按钮栏 ---- */
+.post-foot {
+  padding: 8px 20px;
+  border-top: 1px solid #1E2A3A;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.rep-count {
+  font-size: 10px;
+  color: #3A4A5A;
+  margin-left: 6px;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+/* ---- 按钮样式 ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-family: inherit;
+  font-weight: 500;
+  border: 1px solid #2A3A4A;
+  cursor: pointer;
+  text-decoration: none;
+  background: linear-gradient(180deg, #1A2535 0%, #131B26 100%);
+  color: #6A8AAA;
+  line-height: 1.5;
+}
+
+.btn:hover {
+  background: linear-gradient(180deg, #1E2A3A 0%, #16202E 100%);
+  border-color: #3A5A6A;
+  color: #8AAAC0;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #2A4A6A 0%, #1A3A5A 100%);
+  border-color: #2A4060;
+  color: #B8C4D0;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #3A5A7A 0%, #2A4A6A 100%);
+  border-color: #3A5A7A;
+  color: #E8DCC4;
+}
+
+.btn-danger {
+  background: linear-gradient(180deg, #5A2A2A 0%, #3A1A1A 100%);
+  border-color: #4A2A2A;
+  color: #B86A6A;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(180deg, #6A3A3A 0%, #4A2A2A 100%);
+  border-color: #6A3A3A;
+  color: #D88A8A;
+}
+
+.btn-like {
+  background: linear-gradient(180deg, #3A3A1A 0%, #2A2A12 100%);
+  border-color: #4A4A2A;
+  color: #C0A040;
+}
+
+.btn-like:hover {
+  background: linear-gradient(180deg, #4A4A2A 0%, #3A3A1A 100%);
+  border-color: #6A5A2A;
+  color: #D0B050;
+}
+
+.like-count {
+  color: #C0A040;
+}
+
+/* ============================================================
+   签名（位于 post-inner 下方，190px 缩进对齐内容区）
+   ============================================================ */
+
+.post-signature {
+  margin: 8px 20px 0 190px;
+  padding: 8px 0 10px;
+  border-top: 1px solid #1E2A3A;
+  font-size: 11px;
+  color: #4A5A6A;
+  line-height: 1.5;
+}
+
+.post-signature-empty {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.sig-line {
+  font-size: 10px;
+  color: #2A3A4A;
+  margin-bottom: 3px;
+  font-family: monospace;
+}
+
+.sig-empty {
+  font-size: 10px;
+  color: #3A4A5A;
+  font-style: italic;
+}
+
+/* ============================================================
+   回复区
+   ============================================================ */
+
+#comments-area {
+  background: #131B26;
+  border: 1px solid #2A3A4A;
+  margin-bottom: 12px;
+}
+
+.reply-header {
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #8AAAC0;
+  font-weight: bold;
+  border-bottom: 1px solid #2A3A4A;
+}
+
+.reply-count {
+  font-size: 11px;
+  color: #5A7A8A;
+  font-weight: normal;
+}
+
+/* ============================================================
+   快速回复
+   ============================================================ */
+
+.quick-reply {
+  background: #0F1722;
+  border: 1px solid #2A3A4A;
+  padding: 14px 20px;
+}
+
+.quick-reply h3 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #6A8AAA;
+  margin-bottom: 8px;
+}
+
+.quick-reply textarea {
+  width: 100%;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 12.5px;
+  border: 1px solid #2A3A4A;
+  background: #0E1621;
+  color: #B8C4D0;
+  resize: vertical;
+  outline: none;
+}
+
+.quick-reply textarea:focus {
+  border-color: #3A5A7A;
+}
+
+.quick-reply textarea::placeholder {
+  color: #4A5A6A;
+}
+
+.qr-toolbar {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.qr-smilies a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #5A7A8A;
+  margin-right: 4px;
+}
+
+.qr-smilies a:hover {
+  color: #E0B040;
+}
+
+.qr-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* ---- Search Panel ---- */
+#search-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 320px;
+  background: #1A2535;
+  border: 1px solid #2A4060;
+  border-top: 2px solid #4A7A9A;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+#search-panel.hidden {
+  display: none;
+}
+
+.panel-header {
+  padding: 8px 12px;
+  background: #1A2A3A;
+  border-bottom: 1px solid #2A3A4A;
+  font-size: 12px;
+  color: #6A8A9A;
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-header a {
+  font-size: 12px;
+  color: #5A7A8A;
+}
+
+.panel-header a:hover {
+  color: #E0B040;
+}
+
+#history-list li,
+#result-body {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #1E2A3A;
+  transition: background 0.1s;
+}
+
+#history-list li:hover,
+#result-body:hover {
+  background: #1E2A3A;
+}
+
+#history-list li .history-term {
+  color: #8AAAC0;
+}
+
+#result-body {
+  color: #7BA7D0;
+}
+
+#result-body .result-label {
+  color: #B8C4D0;
+}
+
+#result-body .result-type {
+  font-size: 11px;
+  color: #4A5A6A;
+  margin-left: 6px;
+}
+
+/* ---- Utility ---- */
+.hidden {
+  display: none !important;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111923;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A3A4A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A5A6A;
+}
+
+/* ---- 编辑记录专用样式 ---- */
+.edit-log-post .post-body {
+  background: rgba(0, 0, 0, 0.15);
+  border-left: 3px solid #4A6A8A;
+  padding-left: 16px;
+}
+
+.edit-log-text {
+  color: #B8C4D0;
+  line-height: 2;
+  margin-bottom: 8px;
+}
+
+.edit-log-dim {
+  color: #4A5A6A;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 12px;
+}
+
+.dm-block {
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+
+.dm-block:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dm-sender {
+  color: #8AAAC0;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.dm-text {
+  color: #B8C4D0;
+  padding-left: 8px;
+  border-left: 2px solid #2A4060;
+}
+
+.dm-last {
+  background: rgba(200, 80, 60, 0.08);
+}
+
+.dm-last .dm-text {
+  border-left-color: #C05040;
+}
+
+.log-block {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  margin: 8px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.log-line {
+  color: #7AA0B0;
+  line-height: 1.8;
+  margin-bottom: 2px;
+}
+
+.log-block .log-line strong {
+  color: #D0A040;
+}
+
+.thread-toolbar .toolbar-notice {
+  color: #C08050;
+  font-size: 12px;
+  padding: 0 4px;
+}
+
+/* ====== 全局页面进度标签 ====== */
+#page-counter {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: rgba(232, 220, 196, 0.25);
+  background: rgba(11, 15, 21, 0.6);
+  border: 1px solid rgba(232, 220, 196, 0.12);
+  border-radius: 4px;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+
+/* ---- Footer ---- */
+#footer {
+  padding: 16px 24px;
+  background: #111923;
+  border-top: 1px solid #1E2A3A;
+  text-align: center;
+  font-size: 12px;
+  color: #4A5A6A;
+  line-height: 2;
+}
+
+.footer-links a {
+  color: #5A7A8A;
+  margin: 0 2px;
+}
+
+.footer-copy {
+  color: #3A5A6A;
+}

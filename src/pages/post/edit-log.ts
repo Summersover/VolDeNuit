@@ -1,11 +1,10 @@
 /**
- * 地窖帖正文页 — 页面⑥
+ * 编辑记录 — 页面⑬
  * 夜航论坛 · 深空版块
- * "地窖"
+ * "编辑记录——地窖帖被删除的内容还原"
  *
- * 功能：搜索栏交互、路径追踪、编辑记录密码A解锁
- * 密码A = "Vol de Nuit"（来自塔台创站公告）
- * 与解谜链对齐：本页面为序号 ⑥，右下角显示 6/30。
+ * 功能：搜索栏交互、路径追踪
+ * 与解谜链对齐：本页面为序号 ⑬，右下角显示 13/30。
  */
 
 import '../../shared/state'
@@ -126,70 +125,12 @@ function escapeHtml(str: string): string {
 }
 
 /* ============================================================
-   密码A — 编辑记录解锁
-   密码 = "Vol de Nuit"（来自塔台创站公告）
-   ============================================================ */
-
-const PASSWORD_A = 'Vol de Nuit'
-
-function initPasswordModal(): void {
-  const editLink = document.getElementById('edit-link')
-  const overlay = document.getElementById('password-overlay')!
-  const input = document.getElementById('password-input') as HTMLInputElement
-  const error = document.getElementById('password-error')!
-  const confirmBtn = document.getElementById('password-confirm')!
-  const cancelBtn = document.getElementById('password-cancel')!
-
-  if (!editLink) return
-
-  editLink.addEventListener('click', () => {
-    overlay.classList.remove('hidden')
-    input.value = ''
-    error.classList.add('hidden')
-    input.focus()
-  })
-
-  function normalizePw(s: string): string {
-    return s.toLowerCase().replace(/\s+/g, '')
-  }
-
-  function validate(): void {
-    const val = input.value.trim()
-    if (normalizePw(val) === normalizePw(PASSWORD_A)) {
-      addPathLog('密码A正确 → 进入编辑记录')
-      window.location.href = '/edit-log/cellar.html'
-    } else {
-      error.textContent = '密码错误。提示：站长最喜欢的书？'
-      error.classList.remove('hidden')
-      input.select()
-    }
-  }
-
-  confirmBtn.addEventListener('click', validate)
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      validate()
-    }
-  })
-  cancelBtn.addEventListener('click', () => {
-    overlay.classList.add('hidden')
-  })
-
-  /* 点击遮罩层关闭 */
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.classList.add('hidden')
-  })
-}
-
-/* ============================================================
    初始化
    ============================================================ */
 
 function init(): void {
-  addPathLog('进入地窖帖')
+  addPathLog('进入编辑记录')
   initSearch()
-  initPasswordModal()
   window.scrollTo(0, 0)
 }
 

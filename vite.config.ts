@@ -17,6 +17,7 @@ export default defineConfig({
         favesentence: resolve(__dirname, 'post/favorite-sentence.html'),
         moonphoto: resolve(__dirname, 'post/moon-photo.html'),
         news: resolve(__dirname, 'external/news.html'),
+        editlog: resolve(__dirname, 'edit-log/cellar.html'),
         blindzone: resolve(__dirname, 'board/blindzone.html'),
         exploration: resolve(__dirname, 'post/exploration.html'),
         cellar: resolve(__dirname, 'post/cellar.html'),

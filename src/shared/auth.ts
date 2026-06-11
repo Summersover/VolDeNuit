@@ -15,7 +15,6 @@ const PASSWORD_HASHES: Record<PasswordId, string> = {
 
 /**
  * 验证密码：输入值 → SHA-256 → 与预存哈希比对
- * 不区分大小写（输入时已统一处理）
  */
 export async function checkPassword(id: PasswordId, input: string): Promise<boolean> {
   const expected = PASSWORD_HASHES[id]

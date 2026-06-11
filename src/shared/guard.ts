@@ -12,7 +12,7 @@ import { getState } from './state'
  *   if (!allowed) { 执行 action }
  */
 export function checkAccess(path: string): GuardResult {
-  const pathname = path.replace(/\/+$/, '') || '/'
+  const pathname = path.replace(/\/+$/, '').replace(/\.html$/, '') || '/'
 
   const rules: Record<string, () => GuardResult> = {
     '/edit-log/cellar': () => ({
