@@ -1,0 +1,285 @@
+/* ============================================================
+   雾港晚报 - 本地新闻页（外部页面⑫）
+   模仿 2014 年前后中国地方新闻网站风格
+   ============================================================ */
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 14px; }
+
+body {
+  font-family: '宋体', SimSun, 'Microsoft YaHei', Arial, sans-serif;
+  background: #F0F0F0;
+  color: #333;
+  line-height: 1.8;
+}
+
+a { color: #1E5B9E; text-decoration: none; }
+a:hover { color: #C00; text-decoration: underline; }
+
+/* ---- 顶部广告条 ---- */
+#top-ad {
+  background: #FFF8E1;
+  border-bottom: 1px solid #E8D8A0;
+  padding: 4px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #8A7A4A;
+}
+
+/* ---- 报头 ---- */
+#newspaper-header {
+  background: #FFF;
+  border-bottom: 2px solid #C00;
+}
+
+#header-content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 16px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.paper-name-main {
+  font-size: 32px;
+  font-weight: bold;
+  color: #C00;
+  font-family: '黑体', SimHei, Arial, sans-serif;
+  letter-spacing: 4px;
+}
+
+.paper-name-sub {
+  display: block;
+  font-size: 11px;
+  color: #999;
+  font-family: Georgia, serif;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+#paper-date {
+  font-size: 12px;
+  color: #666;
+}
+
+/* ---- 导航栏 ---- */
+#nav-bar {
+  background: #C00;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  gap: 0;
+  border-bottom: 3px solid #8B0000;
+}
+
+.nav-item {
+  display: block;
+  padding: 8px 16px;
+  color: #FFF !important;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none !important;
+  border-right: 1px solid #B30000;
+  transition: background 0.1s;
+}
+
+.nav-item:hover { background: #8B0000; }
+.nav-item.current { background: #8B0000; }
+
+/* ---- 面包屑 ---- */
+#breadcrumb-bar {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  font-size: 12px;
+  color: #999;
+  background: #FFF;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+#breadcrumb-bar a { color: #1E5B9E; }
+#breadcrumb-bar .current { color: #666; }
+
+/* ---- 主体 ---- */
+#main-content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  gap: 20px;
+  background: #FFF;
+}
+
+#content-left {
+  flex: 1;
+  min-width: 0;
+}
+
+#content-right {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+/* ---- 文章标题 ---- */
+#article-title {
+  font-size: 22px;
+  line-height: 1.4;
+  color: #222;
+  font-weight: bold;
+  font-family: '黑体', SimHei, Arial, sans-serif;
+  margin-bottom: 12px;
+}
+
+/* ---- 文章元信息 ---- */
+#article-meta {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 16px;
+}
+
+.meta-source { color: #C00; font-weight: bold; }
+.meta-sep { margin: 0 6px; color: #DDD; }
+
+/* ---- 文章正文 ---- */
+#article-body {
+  font-size: 15px;
+  line-height: 2;
+  color: #333;
+}
+
+#article-body p { margin-bottom: 14px; text-indent: 2em; }
+
+.article-summary {
+  font-weight: bold;
+  color: #555;
+  background: #F8F8F8;
+  padding: 10px 14px;
+  border-left: 3px solid #C00;
+  text-indent: 0 !important;
+  margin-bottom: 18px;
+}
+
+.article-highlight {
+  background: #FFFDE8;
+  border: 1px solid #E8D8A0;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+.article-highlight p { margin-bottom: 0 !important; }
+
+/* ---- 相关新闻 ---- */
+#related-news {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #E0E0E0;
+}
+
+#related-news h3 {
+  font-size: 14px;
+  color: #C00;
+  margin-bottom: 8px;
+}
+
+#related-news ul { list-style: none; }
+#related-news li {
+  padding: 4px 0;
+  font-size: 13px;
+}
+#related-news li::before { content: "· "; color: #C00; }
+
+/* ---- 文章责任编辑 ---- */
+#article-footer {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid #E0E0E0;
+  font-size: 12px;
+  color: #999;
+  text-align: right;
+}
+
+/* ---- 侧边栏 ---- */
+.side-panel {
+  margin-bottom: 16px;
+  border: 1px solid #E0E0E0;
+}
+
+.side-panel h3 {
+  padding: 8px 12px;
+  background: #F5F5F5;
+  border-bottom: 1px solid #E0E0E0;
+  font-size: 13px;
+  color: #333;
+  font-weight: bold;
+}
+
+.hot-news-list {
+  list-style: none;
+  padding: 4px 0;
+}
+
+.hot-news-list li {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.hot-news-list li:last-child { border-bottom: none; }
+
+.side-ad {
+  padding: 10px 12px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.side-ad:last-child { border-bottom: none; }
+
+.ad-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.ad-desc {
+  font-size: 12px;
+  color: #999;
+}
+
+/* ---- 页脚 ---- */
+#footer {
+  background: #333;
+  color: #AAA;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.footer-links a { color: #AAA !important; margin: 0 4px; }
+.footer-links a:hover { color: #FFF !important; }
+
+.footer-copy { color: #777; margin-top: 4px; }
+
+/* ---- 全局页面进度标签（新闻页也有） ---- */
+#page-counter {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+}

@@ -117,7 +117,7 @@ export function search(query: string): SearchResult {
   // ① 触发搜索
   const triggerHit = findInTable(trimmed, TRIGGER_SEARCHES)
   if (triggerHit) {
-    addSearchHistory(trimmed)
+    addSearchHistory(triggerHit.keywords[0])
     return {
       type: 'trigger',
       label: triggerHit.label,
@@ -128,7 +128,7 @@ export function search(query: string): SearchResult {
   // ② 普通搜索
   const normalHit = findInTable(trimmed, NORMAL_SEARCHES)
   if (normalHit) {
-    addSearchHistory(trimmed)
+    addSearchHistory(normalHit.keywords[0])
     return {
       type: 'normal',
       label: normalHit.label,
