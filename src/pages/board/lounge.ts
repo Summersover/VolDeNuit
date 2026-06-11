@@ -65,7 +65,7 @@ const THREADS: ThreadData[] = [
   { id: 'lounge-13', title: '今天天气不错，拍张窗外的照片吧', author: '小王子', replies: 19, views: 1567, lastAuthor: 'rainbow', lastTime: randomDate() },
 
   // ---- 第二页（16~28）：含月亮照片帖 ----
-  { id: 'moon-photo', title: '2015中秋晒月亮活动获奖作品', author: '霄汉', replies: 34, views: 2890, lastAuthor: 'Vega', lastTime: '2015-09-28', clickable: true, route: '/post/moon-photo' },
+  { id: 'moon-photo', title: '2015中秋晒月亮活动获奖作品', author: '霄汉', replies: 5, views: 2890, lastAuthor: '☆Kimi☆', lastTime: '2015-09-28', clickable: true, route: '/post/moon-photo' },
   { id: 'lounge-14', title: '说说你最近的一个小目标', author: 'william', replies: 26, views: 1987, lastAuthor: '阿辰', lastTime: randomDate() },
   { id: 'lounge-15', title: '你们一般几点睡', author: 'catherine', replies: 41, views: 3456, lastAuthor: '青空', lastTime: randomDate(), hot: true },
   { id: 'lounge-16', title: '推荐一本书吧，什么类型的都行', author: '栀', replies: 37, views: 2876, lastAuthor: '橘', lastTime: randomDate() },
