@@ -13,6 +13,7 @@ export default defineConfig({
         lounge: resolve(__dirname, 'board/lounge.html'),
         blindzone: resolve(__dirname, 'board/blindzone.html'),
         exploration: resolve(__dirname, 'post/exploration.html'),
+        cellar: resolve(__dirname, 'post/cellar.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

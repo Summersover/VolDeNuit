@@ -194,6 +194,7 @@ function initSearch(): void {
   function executeSearch(query: string): void {
     const result: SearchResult = doSearch(query)
 
+    panel.classList.remove('hidden')
     historySection.classList.add('hidden')
     resultSection.classList.remove('hidden')
 
@@ -211,7 +212,7 @@ function initSearch(): void {
     resultContainer.onclick = () => {
       if (result.route) {
         addPathLog(`搜索 → ${result.label}`)
-        window.location.href = result.route
+        window.open(result.route, '_blank')
       }
     }
   }
@@ -219,7 +220,6 @@ function initSearch(): void {
   function doSearchQuery(): void {
     const query = input.value.trim()
     if (!query) return
-    addSearchHistory(query)
     executeSearch(query)
     renderHistory()
   }
@@ -234,10 +234,16 @@ function initSearch(): void {
   })
 
   input.addEventListener('focus', () => {
+    if (input.value.trim() !== '') return
     historySection.classList.remove('hidden')
     resultSection.classList.add('hidden')
     renderHistory()
     panel.classList.remove('hidden')
+  })
+
+  // Typing → hide panel immediately
+  input.addEventListener('input', () => {
+    if (input.value.trim() !== '') panel.classList.add('hidden')
   })
 
   document.addEventListener('click', (e) => {

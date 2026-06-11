@@ -1,10 +1,11 @@
 /**
- * 探险帖正文页 — 页面⑤
+ * 地窖帖正文页 — 页面⑥
  * 夜航论坛 · 深空版块
- * "阳光新城旁废弃危房区探险"
+ * "地窖"
  *
- * 功能：搜索栏交互、路径追踪
- * 与解谜链对齐：本页面为序号 ⑤，右下角显示 5/30。
+ * 功能：搜索栏交互、路径追踪、编辑记录密码A解锁
+ * 密码A = "Vol de Nuit"（来自塔台创站公告）
+ * 与解谜链对齐：本页面为序号 ⑥，右下角显示 6/30。
  */
 
 import '../../shared/state'
@@ -125,12 +126,65 @@ function escapeHtml(str: string): string {
 }
 
 /* ============================================================
+   密码A — 编辑记录解锁
+   密码 = "Vol de Nuit"（来自塔台创站公告）
+   ============================================================ */
+
+const PASSWORD_A = 'Vol de Nuit'
+
+function initPasswordModal(): void {
+  const editLink = document.getElementById('edit-link')
+  const overlay = document.getElementById('password-overlay')!
+  const input = document.getElementById('password-input') as HTMLInputElement
+  const error = document.getElementById('password-error')!
+  const confirmBtn = document.getElementById('password-confirm')!
+  const cancelBtn = document.getElementById('password-cancel')!
+
+  if (!editLink) return
+
+  editLink.addEventListener('click', () => {
+    overlay.classList.remove('hidden')
+    input.value = ''
+    error.classList.add('hidden')
+    input.focus()
+  })
+
+  function validate(): void {
+    const val = input.value.trim()
+    if (val === PASSWORD_A) {
+      addPathLog('密码A正确 → 进入编辑记录')
+      window.location.href = '/edit-log/cellar'
+    } else {
+      error.classList.remove('hidden')
+      input.select()
+    }
+  }
+
+  confirmBtn.addEventListener('click', validate)
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      validate()
+    }
+  })
+  cancelBtn.addEventListener('click', () => {
+    overlay.classList.add('hidden')
+  })
+
+  /* 点击遮罩层关闭 */
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.classList.add('hidden')
+  })
+}
+
+/* ============================================================
    初始化
    ============================================================ */
 
 function init(): void {
-  addPathLog('进入探险帖: 阳光新城旁废弃危房区探险')
+  addPathLog('进入地窖帖')
   initSearch()
+  initPasswordModal()
   window.scrollTo(0, 0)
 }
 

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>老宅地窖调查 - 夜航论坛</title>
+  <link rel="stylesheet" href="/src/pages/post/cellar.css" />
+</head>
+<body>
+
+<div id="container">
+  <!-- ====== 顶栏 ====== -->
+  <div id="header">
+    <div id="header-top">
+      <div id="logo">
+        <span class="logo-night">夜航</span>
+        <span class="logo-sub">—— 飞行员的夜航手册</span>
+      </div>
+      <div id="header-search">
+        <input type="text" id="search-input" placeholder="搜索帖子、用户…" maxlength="50" />
+        <button id="search-btn">搜索</button>
+        <div id="search-panel" class="hidden">
+          <div id="search-history">
+            <div class="panel-header">搜索历史 <a href="#" id="clear-history">清空</a></div>
+            <ul id="history-list"></ul>
+          </div>
+          <div id="search-result" class="hidden">
+            <div class="panel-header">搜索结果</div>
+            <div id="result-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nav">
+      <ul>
+        <li><a href="/board/tower">塔台</a></li>
+        <li><a href="/board/lounge">候机室</a></li>
+        <li class="current"><a href="/board/deepspace">深空</a></li>
+        <li><a href="/board/blindzone">盲区</a></li>
+      </ul>
+      <span id="nav-welcome">欢迎您，<strong>访客</strong></span>
+    </div>
+  </div>
+
+  <!-- ====== 面包屑 ====== -->
+  <div id="breadcrumb">
+    <a href="/board/deepspace">深空——怪谈区</a>
+    <span class="sep">›</span>
+    <span class="current">老宅地窖调查</span>
+  </div>
+
+  <!-- ====== 帖子正文 ====== -->
+  <div id="main">
+    <div id="post-area">
+
+      <!-- 帖子标题 -->
+      <div id="post-header">
+        <h1 id="post-title">老宅地窖调查</h1>
+        <div id="post-meta">
+          <span><a href="/board/deepspace" class="meta-board">深空——怪谈区</a></span>
+          <span class="meta-sep">|</span>
+          <span>由 <a href="javascript:void(0)" class="meta-author-link">隼</a> 发布于 2016-8-20</span>
+          <span class="meta-sep">|</span>
+          <span>回复: 16</span>
+          <span class="meta-sep">|</span>
+          <span>查看: 2103</span>
+        </div>
+      </div>
+
+      <!-- 主题工具条 -->
+      <div class="thread-toolbar">
+        <a href="javascript:void(0)">☆ 收藏</a>
+        <a href="javascript:void(0)">📋 订阅</a>
+        <a href="javascript:void(0)">🔗 分享</a>
+        <a href="javascript:void(0)">⚑ 举报</a>
+        <span class="toolbar-spacer"></span>
+      </div>
+
+      <!-- ======== 楼主帖子 ======== -->
+      <div class="post" id="post-op">
+        <div class="post-inner">
+          <!-- 左侧用户信息栏 -->
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%232A3A2A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">隼</div>
+            <div class="pui-usertitle">高级会员</div>
+            <div class="pui-level">Lv.4</div>
+            <div class="pui-badges">
+              <span class="badge-op">LZ</span>
+            </div>
+            <div class="pui-stats">
+              <div>注册: <span>2014-7-22</span></div>
+              <div>帖子: <span>89</span></div>
+              <div>积分: <span>672</span></div>
+              <div>威望: <span>34</span></div>
+              <div class="pui-online"><span class="offline-indicator"></span> 离线</div>
+            </div>
+          </div>
+          <!-- 右侧内容 -->
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#1</span>
+              <span class="postdate">发表于 2016-8-20 22:14</span>
+            </div>
+            <div class="post-body">
+              <p>又去了一趟老宅。</p>
+              <p>上次报警砸开地窖之后，我一直觉得哪里不对。今天专门带了卷尺下去量了一下。</p>
+              <p>地窖的层高跟记忆中对不上。矮了一截——不是天花板的问题，是地面。脚下的地面比印象中要高出一块。仔细看，地坪水泥的颜色和旁边的墙体明显不一样，像是后来才浇的。</p>
+              <p>有人在我家搬走之后回来过，动过地窖的地面。</p>
+              <p>感觉得费点时间了，在考虑要不要先在附近住下来</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <a href="javascript:void(0)" class="btn btn-like">♥ 赞 <span class="like-count">4</span></a>
+              <span class="rep-count">#1</span>
+            </div>
+          </div>
+        </div>
+        <!-- 签名 -->
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          归巢的路已经断了
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== 回复区 ====== -->
+    <div id="comments-area">
+      <div class="reply-header">回复 <span class="reply-count">(16)</span></div>
+
+      <!-- 回复 1 — 云霄飞车 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%233A2A3A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">云霄飞车</div>
+            <div class="pui-usertitle">中级会员</div>
+            <div class="pui-level">Lv.3</div>
+            <div class="pui-stats">
+              <div>帖子: <span>46</span></div>
+              <div>积分: <span>217</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#2</span>
+              <span class="postdate">发表于 2016-8-20 23:47</span>
+            </div>
+            <div class="post-body">
+              <p>都过了这么多年，记忆有点偏差也正常吧？有没有可能是记错了？</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#2</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          飞得越高，摔得越惨
+        </div>
+      </div>
+
+      <!-- 回复 2 — Gambit -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%233A2020'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">Gambit</div>
+            <div class="pui-usertitle">新手上路</div>
+            <div class="pui-level">Lv.1</div>
+            <div class="pui-stats">
+              <div>帖子: <span>5</span></div>
+              <div>积分: <span>23</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#3</span>
+              <span class="postdate">发表于 2016-8-21 01:13</span>
+            </div>
+            <div class="post-body">
+              <p>要一起吗？最近在找住处</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#3</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature post-signature-empty">
+          <span class="sig-empty">这家伙很懒，什么也没留下……</span>
+        </div>
+      </div>
+
+      <!-- 回复 3 — 隼 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%232A3A2A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">隼</div>
+            <div class="pui-usertitle">高级会员</div>
+            <div class="pui-level">Lv.4</div>
+            <div class="pui-badges">
+              <span class="badge-op">LZ</span>
+            </div>
+            <div class="pui-stats">
+              <div>帖子: <span>89</span></div>
+              <div>积分: <span>672</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#4</span>
+              <span class="postdate">发表于 2016-9-2 10:45</span>
+            </div>
+            <div class="post-body">
+              <p>更新：找到合租了，已经搬进阳光新城。安顿下来花了点时间，接下来可以慢慢查了。</p>
+              <p>在小区里转了转，跟几个老住户聊了聊。有人说那栋老宅被当工棚住过几个工人。但也有人说那段时间晚上经常有卡车进出，不知道在运什么。说法不太一致。</p>
+              <p>还去了趟房管局，调了老宅的原始图纸。图纸上确实标注了地窖，层高和我记忆中的差不多——但现在实际的地窖比图纸上浅了不少。</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#4</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          归巢的路已经断了
+        </div>
+      </div>
+
+      <!-- 回复 4 — 黑猫 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%231A1A2A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">黑猫</div>
+            <div class="pui-usertitle">金牌会员</div>
+            <div class="pui-level">Lv.5</div>
+            <div class="pui-stats">
+              <div>帖子: <span>176</span></div>
+              <div>积分: <span>1432</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#5</span>
+              <span class="postdate">发表于 2016-9-2 16:20</span>
+            </div>
+            <div class="post-body">
+              <p>图纸都翻出来了……楼主这是动真格的了。蹲后续。</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#5</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          黑暗里总有什么在看着你
+        </div>
+      </div>
+
+      <!-- 回复 5 — 隼 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%232A3A2A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">隼</div>
+            <div class="pui-usertitle">高级会员</div>
+            <div class="pui-level">Lv.4</div>
+            <div class="pui-badges">
+              <span class="badge-op">LZ</span>
+            </div>
+            <div class="pui-stats">
+              <div>帖子: <span>89</span></div>
+              <div>积分: <span>672</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#6</span>
+              <span class="postdate">发表于 2016-9-8 21:30</span>
+            </div>
+            <div class="post-body">
+              <p>又打听到了一些事。</p>
+              <p>有几个在附近住了很多年的老居民，对那一片很熟。他们说老宅在徐家搬走之后确实被开发商征用过一阵子，但具体做了什么没人说得清。其中一个人提到，有段时间半夜老听到那个方向有动静，像是有人在挖什么</p>
+              <p>后面开发商修改了规划，把那一片从建设范围里切了出去，建了阳光新城。</p>
+              <p>总觉得这些事串起来不太对劲。</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#6</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          归巢的路已经断了
+        </div>
+      </div>
+
+      <!-- 回复 6 — 夜行船 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%231A2A3A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">夜行船</div>
+            <div class="pui-usertitle">中级会员</div>
+            <div class="pui-level">Lv.3</div>
+            <div class="pui-stats">
+              <div>帖子: <span>52</span></div>
+              <div>积分: <span>308</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#7</span>
+              <span class="postdate">发表于 2016-9-9 12:18</span>
+            </div>
+            <div class="post-body">
+              <p>半夜挖东西……这描述怎么听怎么不对。楼主你一个人查这些，注意安全。</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#7</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature post-signature-empty">
+          <span class="sig-empty">这家伙很懒，什么也没留下……</span>
+        </div>
+      </div>
+
+      <!-- 回复 7 — 隼 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%232A3A2A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">隼</div>
+            <div class="pui-usertitle">高级会员</div>
+            <div class="pui-level">Lv.4</div>
+            <div class="pui-badges">
+              <span class="badge-op">LZ</span>
+            </div>
+            <div class="pui-stats">
+              <div>帖子: <span>89</span></div>
+              <div>积分: <span>672</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#8</span>
+              <span class="postdate">发表于 2016-9-15 14:22</span>
+            </div>
+            <div class="post-body">
+              <p>确定了。</p>
+              <p>趁白天没人，撬开了一小块地窖表层的水泥。下面露出来的不是原来的地面——是两层混凝土的接缝。底下那层颜色深得多，至少有十年以上了。上面这层是后来浇的，做得粗糙，不像是正规施工的手笔。</p>
+              <p>有人在老宅废弃之后回来过，刻意把地窖的地面重铺了一层。</p>
+              <p>为什么要这么做？原来的有什么问题？</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#8</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          归巢的路已经断了
+        </div>
+      </div>
+
+      <!-- 回复 8 — 云霄飞车 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%233A2A3A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">云霄飞车</div>
+            <div class="pui-usertitle">中级会员</div>
+            <div class="pui-level">Lv.3</div>
+            <div class="pui-stats">
+              <div>帖子: <span>46</span></div>
+              <div>积分: <span>217</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#9</span>
+              <span class="postdate">发表于 2016-9-16 10:03</span>
+            </div>
+            <div class="post-body">
+              <p>之前我还说可能是记错了……这明显是有人故意在藏什么东西啊。楼主你跟站长说过这事了吗？</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#9</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          飞得越高，摔得越惨
+        </div>
+      </div>
+
+      <!-- 回复 9 — 隼（最后一条） -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%232A3A2A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">隼</div>
+            <div class="pui-usertitle">高级会员</div>
+            <div class="pui-level">Lv.4</div>
+            <div class="pui-badges">
+              <span class="badge-op">LZ</span>
+            </div>
+            <div class="pui-stats">
+              <div>帖子: <span>89</span></div>
+              <div>积分: <span>672</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#10</span>
+              <span class="postdate">发表于 2016-9-22 19:48</span>
+            </div>
+            <div class="post-body">
+              <p>已经把这段时间查到的所有东西整理好了。</p>
+              <p>回头再来更新。</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#10</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          归巢的路已经断了
+        </div>
+      </div>
+
+      <!-- 回复 10 — 黑猫（新闻爆出） -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%231A1A2A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">黑猫</div>
+            <div class="pui-usertitle">金牌会员</div>
+            <div class="pui-level">Lv.5</div>
+            <div class="pui-stats">
+              <div>帖子: <span>176</span></div>
+              <div>积分: <span>1432</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#11</span>
+              <span class="postdate">发表于 2016-9-26 08:15</span>
+            </div>
+            <div class="post-body">
+              <p>有人看到阳光新城的新闻了吗……阳光新城小区发生命案，一个男的死在出租屋里。</p>
+              <p>楼主你在哪个单元？看到回个话。</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#11</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature">
+          <div class="sig-line">—————————————————————</div>
+          黑暗里总有什么在看着你
+        </div>
+      </div>
+
+      <!-- 回复 11 — 夜行船 -->
+      <div class="post">
+        <div class="post-inner">
+          <div class="post-user">
+            <div class="pui-avatar"><img class="pui-avatar-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' fill='%231A2A3A'/%3E%3Ccircle cx='36' cy='26' r='14' fill='%234A6A8A'/%3E%3Cellipse cx='36' cy='58' rx='22' ry='16' fill='%234A6A8A'/%3E%3C/svg%3E" alt="" /></div>
+            <div class="pui-name">夜行船</div>
+            <div class="pui-usertitle">中级会员</div>
+            <div class="pui-level">Lv.3</div>
+            <div class="pui-stats">
+              <div>帖子: <span>52</span></div>
+              <div>积分: <span>308</span></div>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-head">
+              <span class="postnum">#12</span>
+              <span class="postdate">发表于 2016-9-29 22:40</span>
+            </div>
+            <div class="post-body">
+              <p>一周了，隼没有上线过。有认识他的人吗？</p>
+            </div>
+            <div class="post-foot">
+              <a href="javascript:void(0)" class="btn btn-primary">引用</a>
+              <a href="javascript:void(0)" class="btn">回复</a>
+              <a href="javascript:void(0)" class="btn btn-danger">举报</a>
+              <span class="rep-count">#12</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-signature post-signature-empty">
+          <span class="sig-empty">这家伙很懒，什么也没留下……</span>
+        </div>
+      </div>
+
+      <!-- ====== 编辑时间戳 ====== -->
+      <div id="edit-timestamp">
+        <span id="edit-link">本帖最后由 霄汉 于 2016-9-23 03:14 编辑</span>
+      </div>
+
+    </div>
+
+    <!-- ====== 密码弹窗 ====== -->
+    <div id="password-overlay" class="hidden">
+      <div id="password-modal">
+        <div class="modal-header">🔒 密码验证</div>
+        <div class="modal-body">
+          <p id="password-prompt">此条编辑记录已加密。请输入密码：</p>
+          <input type="password" id="password-input" placeholder="请输入密码" maxlength="100" />
+          <p id="password-error" class="hidden">密码错误</p>
+        </div>
+        <div class="modal-footer">
+          <button id="password-cancel" class="btn">取消</button>
+          <button id="password-confirm" class="btn btn-primary">确认</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== 快速回复 ====== -->
+    <div class="quick-reply">
+      <h3>快速回复</h3>
+      <textarea placeholder="输入回复内容……（支持 BBcode: [b]粗体[/b]  [url]链接[/url]）" rows="3"></textarea>
+      <div class="qr-toolbar">
+        <div class="qr-smilies">
+          <a href="javascript:void(0)">😊</a>
+          <a href="javascript:void(0)">😂</a>
+          <a href="javascript:void(0)">😎</a>
+          <a href="javascript:void(0)">👍</a>
+          <a href="javascript:void(0)">❤️</a>
+          <a href="javascript:void(0)">🤔</a>
+        </div>
+        <div class="qr-actions">
+          <a href="javascript:void(0)" class="btn btn-primary">发表回复</a>
+          <a href="javascript:void(0)" class="btn">高级模式</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ====== 页脚 ====== -->
+  <div id="footer">
+    <div class="footer-links">
+      <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
+      <a href="/board/deepspace">深空</a> · <a href="/board/blindzone">盲区</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2014-2016 夜航. All rights reserved. 「 第三航次 」
+    </div>
+  </div>
+</div>
+
+<!-- ====== 全局页面进度标签 ====== -->
+<div id="page-counter">6/30</div>
+
+<script type="module" src="/src/pages/post/cellar.ts"></script>
+</body>
+</html>
