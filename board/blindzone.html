@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>候机室——水区 - 夜航论坛</title>
-  <link rel="stylesheet" href="/src/pages/board/lounge.css" />
+  <title>盲区——归档 - 夜航论坛</title>
+  <link rel="stylesheet" href="/src/pages/board/blindzone.css" />
 </head>
 <body>
 
@@ -34,9 +34,9 @@
     <div id="nav">
       <ul>
         <li><a href="/board/tower">塔台</a></li>
-        <li class="current"><a href="/board/lounge">候机室</a></li>
+        <li><a href="/board/lounge">候机室</a></li>
         <li><a href="/board/deepspace">深空</a></li>
-        <li><a href="/board/blindzone">盲区</a></li>
+        <li class="current"><a href="/board/blindzone">盲区</a></li>
       </ul>
       <span id="nav-welcome">欢迎您，<strong>访客</strong></span>
     </div>
@@ -44,54 +44,68 @@
 
   <!-- ====== 面包屑 ====== -->
   <div id="breadcrumb">
-    <a href="/board/lounge">候机室——水区</a>
+    <a href="/board/blindzone">盲区——归档</a>
   </div>
 
   <!-- ====== 版块信息栏 ====== -->
   <div id="forum-stats">
-    <span class="stat-item"><b>21,286</b> 个主题</span>
-    <span class="stat-item"><b>184,273</b> 篇帖子</span>
+    <span class="stat-item"><b>2</b> 个主题</span>
+    <span class="stat-item"><b>2</b> 篇帖子</span>
     <span class="stat-item">今日: <b class="highlight">0</b></span>
-    <span class="stat-item">最后发表: 2016-09-30</span>
+    <span class="stat-item">最后发表: 2016-09-29</span>
     <span class="stat-item" id="online-count"><b>2</b> 人在线</span>
   </div>
 
   <!-- ====== 主体区域 ====== -->
   <div id="main">
-    <div id="thread-list-container">
-      <div id="toolbar">
-        <span class="sort-options">
-          排序: <a href="#" class="active">最后回复</a> / <a href="#">发布时间</a> / <a href="#">回复数量</a>
-        </span>
-        <span class="filter-options">
-          <a href="#">全部主题</a> · <a href="#">精华</a> · <a href="#">投票</a>
-        </span>
+    <!-- ====== 上锁状态（未解锁时显示） ====== -->
+    <div id="locked-section">
+      <div id="locked-area">
+        <div class="locked-icon">🔒</div>
+        <div class="locked-title">此版块已上锁</div>
+        <div class="locked-desc">归档内容，需要密钥才能访问</div>
+        <button id="unlock-btn">请输入密钥解锁</button>
       </div>
-
-      <table id="thread-table" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th class="col-status"></th>
-            <th class="col-title">标题</th>
-            <th class="col-author">作者</th>
-            <th class="col-replies">回复/查看</th>
-            <th class="col-lastpost">最后发表</th>
-          </tr>
-        </thead>
-        <tbody id="thread-list">
-          <!-- 由 JS 动态渲染 -->
-        </tbody>
-      </table>
-
-      <div id="pagination"></div>
     </div>
 
+    <!-- ====== 帖子列表（解锁后显示） ====== -->
+    <div id="unlocked-section" class="hidden">
+      <div id="thread-list-container">
+        <div id="toolbar">
+          <span class="sort-options">
+            排序: <a href="#" class="active">最后回复</a> / <a href="#">发布时间</a> / <a href="#">回复数量</a>
+          </span>
+          <span class="filter-options">
+            <a href="#">全部主题</a>
+          </span>
+        </div>
+
+        <table id="thread-table" cellspacing="0" cellpadding="0">
+          <thead>
+            <tr>
+              <th class="col-status"></th>
+              <th class="col-title">标题</th>
+              <th class="col-author">作者</th>
+              <th class="col-replies">回复/查看</th>
+              <th class="col-lastpost">最后发表</th>
+            </tr>
+          </thead>
+          <tbody id="thread-list">
+            <!-- 由 JS 动态渲染 -->
+          </tbody>
+        </table>
+
+        <div id="pagination"></div>
+      </div>
+    </div>
+
+    <!-- 右侧：版块信息栏 -->
     <div id="sidebar">
       <div class="side-box">
-        <h3>本版规则</h3>
+        <h3>本版说明</h3>
         <div class="side-body">
-          <p>候机室——论坛水区。闲聊灌水、日常吐槽、心情分享，禁止人身攻击。</p>
-          <p class="rule-warn">请友善讨论，勿引战。</p>
+          <p>盲区存放了论坛的归档内容、留档日志等敏感记录，需密钥验证后方可查阅。</p>
+          <p class="rule-warn">此版块内容涉及论坛内部档案，请谨慎查阅。</p>
         </div>
       </div>
 
@@ -100,7 +114,6 @@
         <div class="side-body">
           <ul class="mod-list">
             <li><span class="mod-icon">◈</span> 霄汉</li>
-            <li><span class="mod-icon">◈</span> Vega</li>
           </ul>
         </div>
       </div>
@@ -109,8 +122,8 @@
         <h3>统计</h3>
         <div class="side-body">
           <ul class="stats-list">
-            <li>主题: <b>21,286</b></li>
-            <li>帖子: <b>184,273</b></li>
+            <li>主题: <b>2</b></li>
+            <li>帖子: <b>2</b></li>
             <li>今日: <b>0</b></li>
             <li>在线: <b id="sidebar-online">2</b></li>
           </ul>
@@ -124,7 +137,7 @@
     <div id="password-modal">
       <div class="modal-header">🔒 密码验证</div>
       <div class="modal-body">
-        <p id="password-prompt">此页面需要密码才能访问</p>
+        <p id="password-prompt">请输入密钥以解锁盲区</p>
         <input type="password" id="password-input" placeholder="请输入密码" maxlength="100" />
         <p id="password-error" class="hidden">密码错误</p>
       </div>
@@ -148,8 +161,8 @@
 </div>
 
 <!-- ====== 全局页面进度标签 ====== -->
-<div id="page-counter">2/30</div>
+<div id="page-counter">4/30</div>
 
-<script type="module" src="/src/pages/board/lounge.ts"></script>
+<script type="module" src="/src/pages/board/blindzone.ts"></script>
 </body>
 </html>

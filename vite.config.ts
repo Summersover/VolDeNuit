@@ -11,6 +11,7 @@ export default defineConfig({
         deepspace: resolve(__dirname, 'board/deepspace.html'),
         tower: resolve(__dirname, 'board/tower.html'),
         lounge: resolve(__dirname, 'board/lounge.html'),
+        blindzone: resolve(__dirname, 'board/blindzone.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',
