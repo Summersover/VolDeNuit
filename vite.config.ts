@@ -31,7 +31,8 @@ export default defineConfig({
         zhengzaoRecruit: resolve(__dirname, 'external/zhengzao/recruitment.html'),
         zhengzaoRecruit2013: resolve(__dirname, 'external/zhengzao/recruitment-2013.html'),
         polybius: resolve(__dirname, 'post/polybius.html'),
-        polybiusTool: resolve(__dirname, 'polybius-tool.html'),
+        polybiusTool: resolve(__dirname, 'external/polybius-tool.html'),
+        finalArchive: resolve(__dirname, 'post/final-archive.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

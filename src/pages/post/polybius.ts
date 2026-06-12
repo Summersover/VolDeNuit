@@ -133,7 +133,7 @@ function initToolLink(): void {
   link.addEventListener('click', (e) => {
     e.preventDefault()
     addPathLog('波利比奥斯科普帖 → 进入加解密工具页')
-    window.open('/polybius-tool.html', '_blank')
+    window.open('/external/polybius-tool.html', '_blank')
   })
 }
 

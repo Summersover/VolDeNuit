@@ -50,6 +50,10 @@ export function checkAccess(path: string): GuardResult {
       action: 'redirect-blindzone',
     }),
 
+    '/post/final-archive': () => ({
+      allowed: getState('pw_d'),
+      action: 'show-blank-404',
+    }),
     '/final-archive': () => ({
       allowed: getState('pw_d'),
       action: 'show-blank-404',

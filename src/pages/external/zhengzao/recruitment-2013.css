@@ -288,17 +288,17 @@ a { color: inherit; text-decoration: none; }
 }
 
 .email-lost {
-  color: #AAA;
+  color: #6e6e6e;
   font-size: 14px;
   letter-spacing: 1px;
 }
 
 .email-loss-note {
   font-size: 11px;
-  color: #AAA;
+  color: #5A4A3A;
   font-style: italic;
-  background: var(--gray);
-  border: 1px solid var(--gray-border);
+  margin-left: 6px;
+  opacity: 0.55;
   padding: 1px 6px;
   border-radius: 2px;
   margin-left: 4px;

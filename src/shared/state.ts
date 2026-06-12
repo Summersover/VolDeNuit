@@ -67,10 +67,17 @@ export function isUnlocked(key: 'pw_a' | 'pw_b' | 'pw_c' | 'pw_d' | 'pw_e' | 'pw
   return getState(key) as boolean
 }
 
-/** 追加访问日志 */
+/** 追加访问日志（带真实时间戳） */
 export function addPathLog(entry: string): void {
+  const now = new Date()
+  const ts = now.getFullYear() + '-' +
+    String(now.getMonth() + 1).padStart(2, '0') + '-' +
+    String(now.getDate()).padStart(2, '0') + ' ' +
+    String(now.getHours()).padStart(2, '0') + ':' +
+    String(now.getMinutes()).padStart(2, '0') + ':' +
+    String(now.getSeconds()).padStart(2, '0')
   const log = getState('path_log')
-  log.push(entry)
+  log.push(ts + ' — ' + entry)
   setState('path_log', log)
 }
 
