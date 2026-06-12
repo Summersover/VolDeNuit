@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>盲区存档Ⅱ - 夜航论坛</title>
+  <link rel="stylesheet" href="/src/pages/blindzone/entry2.css" />
+</head>
+<body>
+
+<!-- ====== 死讯弹窗（入侵风格） ====== -->
+<div id="death-modal" class="death-modal-hidden">
+  <div id="death-modal-content">
+    <p id="death-text">林霄汉已确认死亡：2016年10月</p>
+    <button id="death-acknowledge">确认</button>
+  </div>
+</div>
+
+<div id="container">
+  <!-- ====== 顶栏 ====== -->
+  <div id="header">
+    <div id="header-top">
+      <div id="logo">
+        <span class="logo-night">夜航</span>
+        <span class="logo-sub">—— 飞行员的夜航手册</span>
+      </div>
+      <div id="header-search">
+        <input type="text" id="search-input" placeholder="搜索帖子、用户…" maxlength="50" />
+        <button id="search-btn">搜索</button>
+        <div id="search-panel" class="hidden">
+          <div id="search-history">
+            <div class="panel-header">搜索历史 <a href="#" id="clear-history">清空</a></div>
+            <ul id="history-list"></ul>
+          </div>
+          <div id="search-result" class="hidden">
+            <div class="panel-header">搜索结果</div>
+            <div id="result-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nav">
+      <ul>
+        <li><a href="/board/tower">塔台</a></li>
+        <li><a href="/board/lounge">候机室</a></li>
+        <li><a href="/board/deepspace">深空</a></li>
+        <li class="current"><a href="/board/blindzone">盲区</a></li>
+      </ul>
+      <span id="nav-welcome">欢迎您，<strong>访客</strong></span>
+    </div>
+  </div>
+
+  <!-- ====== 面包屑 ====== -->
+  <div id="breadcrumb">
+    <a href="/board/blindzone">盲区——归档</a>
+    <span class="sep">›</span>
+    <span class="current">盲区存档Ⅱ</span>
+  </div>
+
+  <!-- ====== 标题 ====== -->
+  <div id="archive-header">
+    <h1 id="archive-title">盲区存档Ⅱ</h1>
+    <p id="archive-meta">霄汉 · 最后的记录</p>
+  </div>
+
+  <!-- ====== 正文 ====== -->
+  <div id="main-content">
+
+    <!-- 访问控制 -->
+    <div id="access-denied" class="hidden">
+      <div class="denied-box">
+        <p class="denied-icon">🔒</p>
+        <p class="denied-text">你没有权限访问此页面。</p>
+        <p class="denied-hint">请先解锁盲区版块。</p>
+      </div>
+    </div>
+
+    <!-- 正文内容 -->
+    <div id="log-content">
+
+      <div class="log-entry">
+        <p class="log-paragraph">关站并不是隐退，而是被人发现查得太深了。</p>
+
+        <p class="log-paragraph">beacon_holder 在论坛彻底下线之前拿到了最后一份访问日志。他知道我已经打开过那个加密档案了。他来得比我以为的快。</p>
+
+        <p class="log-paragraph">我得走了。但我必须把这些写下来——</p>
+
+        <p class="log-paragraph">隼找到的，是他哥哥。<strong class="gold-highlight">徐山</strong>——2009年在老宅失踪的人。</p>
+
+        <p class="log-paragraph">beacon_holder 和 <strong class="clue-highlight">周某</strong>是同一个人。我查到了他的邮箱——前半段是 sbire，后半段在别处。</p>
+
+        <p class="log-paragraph">真正的证据并不在盲区里。我把它们放在了一个只有你们能找到的地方——路径是 <strong class="clue-highlight">/final-archive</strong>。</p>
+
+        <p class="log-paragraph">在浏览器输入那个路径，然后输入密码D——就是<strong class="clue-highlight">凶手邮箱</strong>（sbire + @zhengye.com.cn），也就是 beacon_holder 主页的前半段和正业招聘的后半段拼合起来。</p>
+
+        <p class="log-quote">「当虚拟和现实重合时，凶手一定想不到最终档案是用他的邮箱加密的吧。」</p>
+
+        <p class="log-paragraph">至于 Gambit——那个被推到前面的卒子。他的陈述我已经存档了。徐天的室友，也不过是一枚<strong class="clue-highlight" id="pawn-link">弃子</strong>。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====== 页脚 ====== -->
+  <div id="footer">
+    <div class="footer-links">
+      <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
+      <a href="/board/deepspace">深空</a> · <a href="/board/blindzone">盲区</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2014-2016 夜航. All rights reserved. 「 第三航次 」
+    </div>
+  </div>
+</div>
+
+<!-- ====== 全局页面进度标签 ====== -->
+<div id="page-counter-fixed">23/30</div>
+
+<script type="module" src="/src/pages/blindzone/entry2.ts"></script>
+</body>
+</html>

@@ -25,6 +25,7 @@ export default defineConfig({
         gambit: resolve(__dirname, 'user/gambit.html'),
         vega: resolve(__dirname, 'user/vega.html'),
         blindzoneEntry1: resolve(__dirname, 'blindzone/entry/1.html'),
+        blindzoneEntry2: resolve(__dirname, 'blindzone/entry/2.html'),
         polybius: resolve(__dirname, 'post/polybius.html'),
         polybiusTool: resolve(__dirname, 'polybius-tool.html'),
       },
