@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>航线图 — 圣-埃克苏佩里 · 最后一次飞行</title>
+  <link rel="stylesheet" href="/src/pages/extra/flightpath.css" />
+</head>
+<body>
+
+<div id="chart">
+  <!-- ====== 航图信息 ====== -->
+  <div id="flight-info">
+    <div class="info-row"><span class="info-label">任务编号</span><span class="info-value">第九次侦察飞行</span></div>
+    <div class="info-row"><span class="info-label">机型</span><span class="info-value">P-38 Lightning</span></div>
+    <div class="info-row"><span class="info-label">起飞</span><span class="info-value">1944.7.31 08:45<br />科西嘉岛 · 博尔戈</span></div>
+    <div class="info-row"><span class="info-label">最后联络</span><span class="info-value">1944.7.31 12:30<br />地中海海域</span></div>
+    <div class="info-row"><span class="info-label">状态</span><span class="info-value status-mia">失踪 · 至今未找到</span></div>
+  </div>
+
+  <!-- ====== 航线可视化 ====== -->
+  <div id="map-area">
+    <div class="map-label map-label-corsica">科西嘉岛<br /><span class="map-label-sub">起飞点</span></div>
+    <div class="map-label map-label-sea">地中海</div>
+    <div class="map-label map-label-last">最后已知位置<br /><span class="map-label-sub">✞</span></div>
+
+    <!-- 虚线航线 -->
+    <svg class="flight-svg" viewBox="0 0 600 400">
+      <defs>
+        <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="rgba(200,180,140,0.4)" />
+        </marker>
+      </defs>
+      <!-- 虚线航线 -->
+      <path d="M 80 320 Q 200 280, 350 200 T 520 120"
+            fill="none"
+            stroke="rgba(200,180,140,0.35)"
+            stroke-width="1.5"
+            stroke-dasharray="6 4"
+            marker-end="url(#arrowhead)" />
+      <!-- 终点标记 -->
+      <circle cx="520" cy="120" r="5" fill="none" stroke="rgba(200,180,140,0.5)" stroke-width="1.5" />
+      <circle cx="520" cy="120" r="1.5" fill="rgba(200,180,140,0.6)" />
+    </svg>
+  </div>
+
+  <!-- ====== 说明文字 ====== -->
+  <div id="chart-text">
+    <p>1944年7月31日，圣-埃克苏佩里从科西嘉岛博尔戈基地起飞，执行他的第九次侦察任务。他驾驶的P-38"闪电"式战斗机在地中海上空消失，再也没有回来。</p>
+    <p>没有人知道他去了哪里。</p>
+    <p class="chart-quote">"当你在夜晚仰望星空时——因为我就住在其中一颗星星上，因为我在其中一颗星星上对你微笑——对你来说，就好像所有的星星都在对你微笑。"</p>
+    <p class="chart-quote-source">——《小王子》</p>
+  </div>
+</div>
+
+<script type="module" src="/src/pages/extra/flightpath.ts"></script>
+
+<div id="page-counter">extra 5/7</div>
+
+</body>
+</html>

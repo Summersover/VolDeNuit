@@ -100,7 +100,7 @@
 | `/user/vega/drafts` | extra4 | Vega主页右上角私信箱图标 |
 | `/flight-path/` | extra5 | 盲区存档Ⅰ"希望我们不会像他一样遗憾"可点击 |
 | `/statement/` | extra6 | 盲区存档Ⅱ"弃子"可点击 |
-| `/memoir/xutian` | extra7 | 搜索"徐天" |
+| `/memoir/xutian.html` | extra7 | 搜索"徐天" |
 
 ### 2.7 终局页面
 

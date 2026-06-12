@@ -1,0 +1,160 @@
+/* ============================================================
+   圣-埃克苏佩里航线图（extra5）
+   深蓝航图风格 · 独立页面 · 导航图样式
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', 'Microsoft YaHei', serif;
+  background: #060A12;
+  color: #8A9AAA;
+  line-height: 1.8;
+}
+
+#chart {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 60% 50%, rgba(20, 40, 80, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 30%, rgba(40, 60, 100, 0.1) 0%, transparent 40%),
+    #060A12;
+}
+
+/* ---- 航图信息面板 ---- */
+#flight-info {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  border: 1px solid rgba(200, 180, 140, 0.15);
+  background: rgba(6, 10, 18, 0.85);
+  padding: 16px 20px;
+  font-size: 12px;
+  min-width: 200px;
+}
+
+.info-row {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(200, 180, 140, 0.06);
+  display: flex;
+  gap: 8px;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-label {
+  color: #5A6A7A;
+  font-weight: bold;
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+.info-value {
+  color: #9AAAAB;
+  line-height: 1.5;
+}
+
+.status-mia { color: #A08060; }
+
+/* ---- 地图区域 ---- */
+#map-area {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 20px 0;
+}
+
+.map-label {
+  position: absolute;
+  font-size: 11px;
+  color: #5A7A8A;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.map-label-corsica {
+  bottom: 20px;
+  left: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8A9A7A;
+}
+
+.map-label-sub {
+  font-size: 10px;
+  color: #5A6A5A;
+  font-weight: normal;
+}
+
+.map-label-sea {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  color: #3A4A5A;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.map-label-last {
+  top: 10px;
+  right: 30px;
+  font-size: 11px;
+  color: #A08060;
+}
+
+.flight-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- 说明文字 ---- */
+#chart-text {
+  max-width: 540px;
+  text-align: center;
+  font-size: 13px;
+  color: #7A8A9A;
+  line-height: 2;
+  margin-top: 16px;
+}
+
+#chart-text p { margin-bottom: 12px; }
+
+.chart-quote {
+  font-style: italic;
+  color: #8A7A5A;
+  font-size: 13px;
+  margin-top: 24px !important;
+  max-width: 420px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.chart-quote-source {
+  font-size: 11px;
+  color: #5A6A5A;
+}
+
+/* ---- Page Counter ---- */
+#page-counter {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  font-family: 'Georgia', serif; font-size: 13px;
+  color: rgba(0,0,0,0.5); background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;
+  padding: 4px 10px; letter-spacing: 0.5px;
+  user-select: none; pointer-events: none;
+}

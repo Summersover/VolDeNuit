@@ -42,7 +42,7 @@ const TRIGGER_SEARCHES: SearchEntry[] = [
   },
   {
     keywords: ['徐天'],
-    route: '/memoir/xutian',
+    route: '/memoir/xutian.html',
     label: '徐天回忆录',
   },
 ]

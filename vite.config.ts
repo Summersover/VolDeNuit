@@ -39,6 +39,9 @@ export default defineConfig({
         farewell: resolve(__dirname, 'farewell/index.html'),
         scouting: resolve(__dirname, 'post/scouting-2014.html'),
         vegaDrafts: resolve(__dirname, 'user/vega/drafts.html'),
+        flightPath: resolve(__dirname, 'flight-path/index.html'),
+        statement: resolve(__dirname, 'statement/index.html'),
+        memoirXutian: resolve(__dirname, 'memoir/xutian.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

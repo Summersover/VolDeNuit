@@ -1,0 +1,151 @@
+/* ============================================================
+   Gambit完整陈述（extra6）
+   警方档案风格 · 正式文书
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 14px; }
+
+body {
+  font-family: '宋体', SimSun, 'Microsoft YaHei', serif;
+  background: #FFF;
+  color: #2A2A2A;
+  line-height: 2;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+#doc {
+  width: 100%;
+  max-width: 680px;
+  background: #fffffe;
+  padding: 48px 56px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+/* ---- 档案头 ---- */
+#doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.doc-stamp {
+  font-size: 11px;
+  color: #8A3A3A;
+  border: 2px solid #8A3A3A;
+  padding: 2px 10px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  transform: rotate(-5deg);
+  opacity: 0.7;
+}
+
+.doc-ref {
+  font-size: 10px;
+  color: #888;
+  font-family: 'Courier New', monospace;
+}
+
+/* ---- 标题 ---- */
+#doc-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+  font-family: '黑体', SimHei, sans-serif;
+}
+
+#doc-subtitle {
+  font-size: 13px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* ---- 元信息 ---- */
+#doc-meta {
+  border: 1px solid #E0D8D0;
+  background: #f7f5f2;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.meta-row {
+  padding: 3px 0;
+  display: flex;
+}
+
+.meta-l {
+  color: #888;
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.meta-r { color: #333; }
+
+/* ---- 分隔线 ---- */
+.doc-divider {
+  border: none;
+  border-top: 1px solid #E0D8D0;
+  margin: 20px 0;
+}
+
+/* ---- 正文 ---- */
+#doc-body p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+  text-indent: 2em;
+  line-height: 2.2;
+}
+
+/* ---- 页脚 ---- */
+#doc-footer {
+  margin-top: 24px;
+}
+
+.signature-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #555;
+}
+
+.sig-label { color: #888; }
+.sig-space {
+  font-family: 'Courier New', monospace;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.prison-info {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #E0D8D0;
+  font-size: 11px;
+  color: #999;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.prison-info p { margin-bottom: 2px; }
+
+/* ---- Page Counter ---- */
+#page-counter {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  font-family: 'Georgia', serif; font-size: 13px;
+  color: rgba(0,0,0,0.4); background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 4px;
+  padding: 4px 10px; letter-spacing: 0.5px;
+  user-select: none; pointer-events: none;
+}
