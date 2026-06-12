@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>盲区存档Ⅰ - 夜航论坛</title>
+  <link rel="stylesheet" href="/src/pages/blindzone/entry1.css" />
+</head>
+<body>
+
+<div id="container">
+  <!-- ====== 顶栏 ====== -->
+  <div id="header">
+    <div id="header-top">
+      <div id="logo">
+        <span class="logo-night">夜航</span>
+        <span class="logo-sub">—— 飞行员的夜航手册</span>
+      </div>
+      <div id="header-search">
+        <input type="text" id="search-input" placeholder="搜索帖子、用户…" maxlength="50" />
+        <button id="search-btn">搜索</button>
+        <div id="search-panel" class="hidden">
+          <div id="search-history">
+            <div class="panel-header">搜索历史 <a href="#" id="clear-history">清空</a></div>
+            <ul id="history-list"></ul>
+          </div>
+          <div id="search-result" class="hidden">
+            <div class="panel-header">搜索结果</div>
+            <div id="result-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nav">
+      <ul>
+        <li><a href="/board/tower">塔台</a></li>
+        <li><a href="/board/lounge">候机室</a></li>
+        <li><a href="/board/deepspace">深空</a></li>
+        <li class="current"><a href="/board/blindzone">盲区</a></li>
+      </ul>
+      <span id="nav-welcome">欢迎您，<strong>访客</strong></span>
+    </div>
+  </div>
+
+  <!-- ====== 面包屑 ====== -->
+  <div id="breadcrumb">
+    <a href="/board/blindzone">盲区——归档</a>
+    <span class="sep">›</span>
+    <span class="current">盲区存档Ⅰ</span>
+  </div>
+
+  <!-- ====== 标题 ====== -->
+  <div id="archive-header">
+    <h1 id="archive-title">盲区存档Ⅰ</h1>
+    <p id="archive-meta">霄汉 · 写于 2016-9-29 · 盲区入口</p>
+  </div>
+
+  <!-- ====== 正文 ====== -->
+  <div id="main-content">
+
+    <!-- 访问控制：未解锁时显示 -->
+    <div id="access-denied" class="hidden">
+      <div class="denied-box">
+        <p class="denied-icon">🔒</p>
+        <p class="denied-text">你没有权限访问此页面。</p>
+        <p class="denied-hint">请先解锁盲区版块。</p>
+      </div>
+    </div>
+
+    <!-- 正文内容（解锁后显示） -->
+    <div id="log-content">
+
+      <!-- 日志正文 -->
+      <div class="log-entry">
+        <p class="log-paragraph">我不知道这份记录会被谁看到。如果你正在读它——说明你已经走完了最远的那段路。</p>
+
+        <p class="log-paragraph">我已经确认了一件事：beacon_holder 和正业集团之间，存在某种关联。我查过他的注册信息，时间、IP段、甚至他用的邮箱命名方式——所有痕迹都指向同一个方向。但我没有足够的证据。这些痕迹太干净了，像是被刻意擦过，只留下一些最表面的线索。不够。远远不够报警。</p>
+
+        <p class="log-paragraph">我把所有关于 Vega 的记录都删了。她的帖子、她的管理日志、她和我之间的私信——所有可能把她和这件事联系起来的痕迹，我都清理干净了。如果有一天这个论坛被人重新打开，她不会被卷进来。这是我唯一能为她做的事。</p>
+
+        <p class="log-paragraph">至于那个叫 Gambit 的——我查过你的IP。你不是偶然出现在那里的。但你不是主谋，你只是个被推到前面的卒子。真正在下棋的人，从来不自己动手。</p>
+
+        <p class="log-paragraph">我没有多少时间了。从我发现那个账号开始，就有人在清理痕迹。论坛后台的访问日志每隔几天就会少几行。不是系统自动清理——是有人远程进来过。</p>
+
+        <p class="log-paragraph">我知道有人在看着这里。所以我把最重要的东西放在了另一个地方。</p>
+      </div>
+
+      <!-- 分隔线 -->
+      <div class="log-divider">—— —— ——</div>
+
+      <!-- 极隐蔽的触发点 -->
+      <div id="hidden-trigger" title="点击探索">
+        <span id="hidden-trigger-text">· · ·</span>
+      </div>
+
+      <!-- 隐藏弹窗 -->
+      <div id="secret-modal" class="hidden">
+        <div id="secret-modal-bg"></div>
+        <div id="secret-modal-content">
+          <p class="secret-text">存档Ⅱ我用另一把锁封着。钥匙是从密码A推出来的。你听说过<strong class="clue-highlight">波利比奥斯</strong>吗——古希腊人把字母放进5×5的方格里，用坐标代替字母来传信。后来二战中的盟军情报员，也受过它的启发。我想，如果有一天这些东西需要被人找到，那找到的人应该也能想到同一条路。</p>
+          <p class="secret-signoff"><a href="javascript:void(0)" id="flight-path-link" class="underline-link">希望我们不会像他一样遗憾。</a></p>
+          <button id="secret-close">知道了</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====== 页脚 ====== -->
+  <div id="footer">
+    <div class="footer-links">
+      <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
+      <a href="/board/deepspace">深空</a> · <a href="/board/blindzone">盲区</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2014-2016 夜航. All rights reserved. 「 第三航次 」
+    </div>
+  </div>
+</div>
+
+<!-- ====== 全局页面进度标签 ====== -->
+<div id="page-counter-fixed">20/30</div>
+
+<script type="module" src="/src/pages/blindzone/entry1.ts"></script>
+</body>
+</html>

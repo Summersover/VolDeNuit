@@ -24,6 +24,7 @@ export default defineConfig({
         beaconholder: resolve(__dirname, 'user/beacon_holder.html'),
         gambit: resolve(__dirname, 'user/gambit.html'),
         vega: resolve(__dirname, 'user/vega.html'),
+        blindzoneEntry1: resolve(__dirname, 'blindzone/entry/1.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

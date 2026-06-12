@@ -1,0 +1,481 @@
+/* ============================================================
+   夜航论坛 - 盲区存档Ⅰ（页面⑳）
+   配色：与盲区版块（页面④）一致的深邃暗色主题
+   对应解谜链序号 ⑳，右下角显示 20/30
+   ============================================================ */
+
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, Arial, sans-serif;
+  background: #05080C;
+  color: #5A6A78;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a {
+  color: #4A6078;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7A9AAA;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #3A4A5A;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---- Layout ---- */
+#container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Header ---- */
+#header {
+  background: #0A0F18;
+  border-bottom: 1px solid #121C2E;
+}
+
+#header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+#logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.logo-night {
+  font-size: 22px;
+  font-weight: bold;
+  color: #607A8E;
+  letter-spacing: 2px;
+}
+
+.logo-sub {
+  font-size: 11px;
+  color: #3A4A5A;
+}
+
+/* ---- Search ---- */
+#header-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#header-search input {
+  width: 200px;
+  padding: 4px 8px;
+  background: #0E1525;
+  border: 1px solid #1A283A;
+  color: #607A8E;
+  font-size: 12px;
+  outline: none;
+}
+
+#header-search input:focus {
+  border-color: #3A6078;
+}
+
+#header-search button {
+  padding: 4px 12px;
+  background: #1A283A;
+  border: 1px solid #1A283A;
+  color: #607A8E;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#header-search button:hover {
+  background: #22324A;
+  border-color: #3A6078;
+}
+
+#search-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 320px;
+  background: #0A0F18;
+  border: 1px solid #1A283A;
+  border-top: 2px solid #3A5060;
+  z-index: 1000;
+  margin-top: 2px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+}
+
+#search-panel.hidden { display: none; }
+
+.panel-header {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #3A4A5A;
+  border-bottom: 1px solid #121C2E;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header a {
+  color: #3A4A5A;
+  font-size: 11px;
+}
+
+.panel-header a:hover { color: #7A9AAA; }
+
+#history-list {
+  list-style: none;
+}
+
+#history-list li {
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #5A6A78;
+  border-bottom: 1px solid #0E1525;
+}
+
+#history-list li:hover {
+  background: #121C2E;
+  color: #7A8A98;
+}
+
+#result-body {
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.result-label { color: #607A8E; }
+.result-type { color: #3A4A5A; font-size: 11px; margin-left: 6px; }
+
+/* ---- Nav ---- */
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 20px;
+  background: #0A0F18;
+  border-bottom: 1px solid #121C2E;
+}
+
+#nav ul {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+}
+
+#nav ul li a {
+  display: block;
+  padding: 4px 14px;
+  color: #4A6078;
+  font-size: 13px;
+  border-radius: 2px;
+}
+
+#nav ul li a:hover {
+  color: #7A9AAA;
+  background: #121C2E;
+  text-decoration: none;
+}
+
+#nav ul li.current a {
+  color: #7A9AAA;
+  background: #1A283A;
+}
+
+#nav-welcome {
+  font-size: 12px;
+  color: #3A4A5A;
+}
+
+#nav-welcome strong { color: #4A6078; }
+
+/* ---- Breadcrumb ---- */
+#breadcrumb {
+  padding: 8px 20px;
+  font-size: 12px;
+  color: #3A4A5A;
+  background: #080C14;
+  border-bottom: 1px solid #121C2E;
+}
+
+#breadcrumb a { color: #4A6078; }
+#breadcrumb .sep { margin: 0 6px; color: #1A283A; }
+#breadcrumb .current { color: #4A5A6A; }
+
+/* ---- Archive Header ---- */
+#archive-header {
+  padding: 30px 20px 10px;
+  text-align: center;
+}
+
+#archive-title {
+  font-size: 20px;
+  color: #4A5A6A;
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+
+#archive-meta {
+  font-size: 12px;
+  color: #3A4A5A;
+  margin-top: 8px;
+}
+
+/* ---- Main Content ---- */
+#main-content {
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+/* ---- Access Denied ---- */
+#access-denied {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#access-denied.hidden { display: none; }
+
+.denied-box {
+  background: #0A0F18;
+  border: 1px solid #1A283A;
+  padding: 40px;
+}
+
+.denied-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.denied-text {
+  font-size: 16px;
+  color: #5A6A78;
+  margin-bottom: 8px;
+}
+
+.denied-hint {
+  font-size: 13px;
+  color: #3A4A5A;
+}
+
+/* ---- Log Content ---- */
+#log-content.hidden { display: none; }
+
+.log-entry {
+  background: #0A0F18;
+  border: 1px solid #121C2E;
+  padding: 30px;
+}
+
+.log-paragraph {
+  font-size: 14px;
+  color: #5A6A78;
+  margin-bottom: 18px;
+  text-indent: 2em;
+  line-height: 1.9;
+}
+
+.log-paragraph:first-child {
+  text-indent: 0;
+}
+
+.log-paragraph .clue-highlight {
+  color: #6A8A9A;
+  font-weight: normal;
+}
+
+.log-paragraph strong.clue-highlight {
+  color: #6A8A9A;
+  font-weight: bold;
+}
+
+/* ---- Divider ---- */
+.log-divider {
+  text-align: center;
+  padding: 24px 0;
+  color: #1A283A;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+/* ---- Hidden Trigger ---- */
+#hidden-trigger {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+  border-radius: 4px;
+}
+
+#hidden-trigger:hover {
+  background: rgba(18, 28, 46, 0.35);
+}
+
+#hidden-trigger-text {
+  font-size: 18px;
+  color: rgba(42, 58, 72, 0.40);
+  letter-spacing: 6px;
+  transition: color 0.2s;
+}
+
+#hidden-trigger:hover #hidden-trigger-text {
+  color: rgba(58, 74, 88, 0.70);
+}
+
+/* ---- Secret Modal ---- */
+#secret-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#secret-modal.hidden { display: none; }
+
+#secret-modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+#secret-modal-content {
+  position: relative;
+  background: #0A0F18;
+  border: 1px solid #1A283A;
+  padding: 30px;
+  max-width: 520px;
+  width: 90%;
+  z-index: 1;
+}
+
+.secret-text {
+  font-size: 13px;
+  color: #5A6A78;
+  line-height: 1.9;
+  text-indent: 2em;
+  margin-bottom: 16px;
+}
+
+.secret-signoff {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.secret-signoff a {
+  color: #4A6078;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.secret-signoff a:hover {
+  color: #7A9AAA;
+  text-decoration: none;
+}
+
+.underline-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.underline-link:hover {
+  text-decoration: underline !important;
+}
+
+#secret-close {
+  display: block;
+  margin: 0 auto;
+  padding: 6px 24px;
+  background: #1A283A;
+  border: 1px solid #1A283A;
+  color: #5A6A78;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+#secret-close:hover {
+  background: #22324A;
+  border-color: #3A6078;
+  color: #7A9AAA;
+}
+
+/* ---- Footer ---- */
+#footer {
+  text-align: center;
+  padding: 16px 20px;
+  border-top: 1px solid #121C2E;
+  background: #0A0F18;
+  margin-top: auto;
+}
+
+.footer-links {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  color: #3A4A5A;
+  font-size: 12px;
+  margin: 0 6px;
+}
+
+.footer-links a:hover { color: #7A9AAA; }
+
+.footer-copy {
+  font-size: 11px;
+  color: #1A283A;
+}
+
+/* ---- Page Counter ---- */
+#page-counter-fixed {
+  position: fixed;
+  bottom: 10px;
+  right: 14px;
+  font-size: 11px;
+  color: #1A283A;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1px;
+  user-select: none;
+  z-index: 999;
+}
