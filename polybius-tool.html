@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>波利比奥斯方阵加解密工具</title>
+  <link rel="stylesheet" href="/src/pages/tool/polybius-tool.css" />
+</head>
+<body>
+
+<div id="container">
+  <!-- 标题 -->
+  <div id="header">
+    <h1 id="title">波利比奥斯方阵</h1>
+    <p id="subtitle">Polybius Square — 字母与数字的坐标转换</p>
+  </div>
+
+  <!-- 方阵示意图 -->
+  <div id="grid-section">
+    <table id="poly-grid">
+      <tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+      <tr><td>1</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>
+      <tr><td>2</td><td>F</td><td>G</td><td>H</td><td>I/J</td><td>K</td></tr>
+      <tr><td>3</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td></tr>
+      <tr><td>4</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td></tr>
+      <tr><td>5</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+    </table>
+  </div>
+
+  <!-- 工具栏 -->
+  <div id="tool-section">
+    <div class="io-row">
+      <div class="io-group">
+        <label for="input-text">输入（字母）</label>
+        <textarea id="input-text" placeholder="在此输入字母…" rows="3"></textarea>
+      </div>
+      <div class="btn-group">
+        <button id="btn-encrypt">加密 →</button>
+        <button id="btn-decrypt">← 解密</button>
+      </div>
+      <div class="io-group">
+        <label for="output-text">输出（数字）</label>
+        <textarea id="output-text" placeholder="在此输入数字…" rows="3"></textarea>
+      </div>
+    </div>
+
+    <!-- 示例 -->
+    <div id="example-row">
+      <span class="example-label">示例：</span>
+      <span class="example-text">HELLO → 23 15 31 31 34</span>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div id="footer">
+    <p>字母对应坐标：行号 + 列号，如 A=11, B=12, Z=55</p>
+    <p class="footer-note">I 和 J 共用同一格（I/J=24）</p>
+  </div>
+</div>
+
+<script type="module" src="/src/pages/tool/polybius-tool.ts"></script>
+</body>
+</html>

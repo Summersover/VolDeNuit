@@ -1,0 +1,188 @@
+/* ============================================================
+   波利比奥斯加解密工具 — 页面㉒
+   独立外部页面 · 浅色复古工具风格 · 与论坛深色主题形成反差
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, Arial, sans-serif;
+  background: #E8E0D4;
+  color: #3A4048;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+#container {
+  width: 100%;
+  max-width: 680px;
+  background: #F5F0E8;
+  border: 1px solid #D0C8B8;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 36px 32px 28px;
+}
+
+/* ---- Header ---- */
+#header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+#title {
+  font-size: 24px;
+  color: #2A3038;
+  font-weight: normal;
+  letter-spacing: 6px;
+  margin-bottom: 6px;
+}
+
+#subtitle {
+  font-size: 12px;
+  color: #8A8070;
+  letter-spacing: 1px;
+}
+
+/* ---- Grid ---- */
+#grid-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+#poly-grid {
+  border-collapse: collapse;
+}
+
+#poly-grid td {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #C8C0B0;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #3A4048;
+  background: #F0ECE2;
+}
+
+#poly-grid tr:first-child td,
+#poly-grid td:first-child {
+  background: #E0D8CA;
+  color: #8A8070;
+  font-size: 11px;
+}
+
+/* ---- Tool ---- */
+#tool-section {
+  margin-bottom: 20px;
+}
+
+.io-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.io-group {
+  flex: 1;
+}
+
+.io-group label {
+  display: block;
+  font-size: 12px;
+  color: #8A8070;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.io-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: #F0ECE2;
+  border: 1px solid #D0C8B8;
+  color: #2A3038;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  resize: vertical;
+  outline: none;
+  line-height: 1.6;
+}
+
+.io-group textarea:focus {
+  border-color: #A09888;
+}
+
+.io-group textarea::placeholder {
+  color: #B0A898;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 22px;
+  flex-shrink: 0;
+}
+
+.btn-group button {
+  padding: 8px 14px;
+  background: linear-gradient(180deg, #D8D0C0 0%, #C8C0B0 100%);
+  border: 1px solid #B8B0A0;
+  color: #4A5058;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.12s, background 0.12s;
+}
+
+.btn-group button:hover {
+  background: linear-gradient(180deg, #C8C0B0 0%, #B8B0A0 100%);
+  color: #2A3038;
+}
+
+/* ---- Example ---- */
+#example-row {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #F0ECE2;
+  border: 1px solid #D8D0C0;
+  font-size: 13px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.example-label {
+  color: #8A8070;
+  margin-right: 8px;
+}
+
+.example-text {
+  color: #4A5058;
+}
+
+/* ---- Footer ---- */
+#footer {
+  text-align: center;
+  font-size: 12px;
+  color: #8A8070;
+  line-height: 1.8;
+  border-top: 1px solid #D8D0C0;
+  padding-top: 16px;
+}
+
+.footer-note {
+  color: #A09888;
+  font-size: 11px;
+}

@@ -26,6 +26,7 @@ export default defineConfig({
         vega: resolve(__dirname, 'user/vega.html'),
         blindzoneEntry1: resolve(__dirname, 'blindzone/entry/1.html'),
         polybius: resolve(__dirname, 'post/polybius.html'),
+        polybiusTool: resolve(__dirname, 'polybius-tool.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',
