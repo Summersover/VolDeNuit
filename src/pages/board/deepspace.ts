@@ -3,7 +3,7 @@
  * 夜航论坛 · 怪谈区
  *
  * 设计目标：真实复现 2014-2016 年中国 PHP 论坛（Discuz! 风格）的版块页面。
- * 与解谜链对齐：本页面为序号 ①，右下角显示 1/29。
+ * 与解谜链对齐：本页面为序号 ①，右下角显示 1/30。
  */
 
 import '../../shared/state'
@@ -384,7 +384,7 @@ export function showPasswordOverlay(
     if (ok) {
       overlay.classList.add('hidden')
       addPathLog(`密码验证成功 → ${route}`)
-      window.location.href = route
+      window.open(route, '_blank')
     } else {
       errorEl.classList.remove('hidden')
       input.classList.add('shake')

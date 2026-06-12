@@ -191,7 +191,7 @@ function showPasswordOverlay(
       if (onSuccess) {
         onSuccess()
       } else {
-        window.location.href = route
+        window.open(route, '_blank')
       }
     } else {
       errorEl.classList.remove('hidden')

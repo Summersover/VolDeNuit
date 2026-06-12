@@ -4,7 +4,7 @@
  *
  * 设计目标：真实复现公告版块样式。约 10 个公告帖子，
  * 仅关站公告（顶）与创站公告（底）可点击进入。
- * 与解谜链对齐：本页面为序号 ③，右下角显示 3/29。
+ * 与解谜链对齐：本页面为序号 ③，右下角显示 3/30。
  */
 
 import '../../shared/state'
@@ -302,7 +302,7 @@ export function showPasswordOverlay(
     if (ok) {
       overlay.classList.add('hidden')
       addPathLog(`密码验证成功 → ${route}`)
-      window.location.href = route
+      window.open(route, '_blank')
     } else {
       errorEl.classList.remove('hidden')
       input.classList.add('shake')

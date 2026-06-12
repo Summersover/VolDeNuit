@@ -157,7 +157,7 @@ function initPasswordModal(): void {
     const val = input.value.trim()
     if (normalizePw(val) === normalizePw(PASSWORD_A)) {
       addPathLog('密码A正确 → 进入编辑记录')
-      window.location.href = '/edit-log/cellar.html'
+      window.open('/edit-log/cellar.html', '_blank')
     } else {
       error.textContent = '密码错误。提示：站长最喜欢的书？'
       error.classList.remove('hidden')
