@@ -33,6 +33,8 @@ export default defineConfig({
         polybius: resolve(__dirname, 'post/polybius.html'),
         polybiusTool: resolve(__dirname, 'external/polybius-tool.html'),
         finalArchive: resolve(__dirname, 'post/final-archive.html'),
+        endingDisclose: resolve(__dirname, 'ending/disclose.html'),
+        endingSilence: resolve(__dirname, 'ending/silence.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

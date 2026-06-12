@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>夜航，「 第三航次 」，已结束。</title>
+  <link rel="stylesheet" href="/src/pages/ending/disclose.css" />
+</head>
+<body>
+
+<div id="stage">
+  <div id="lines-container"></div>
+
+  <div id="newspaper-section" class="hidden">
+    <div id="newspaper-placeholder">
+      <span class="np-ph-icon">📰</span>
+      <span class="np-ph-text">报纸照片（待替换）</span>
+    </div>
+    <!-- 真实报纸图片以后替换上面这个占位 -->
+    <div id="np-next-btn" class="dots-box"><span class="dots-text">••••••</span></div>
+  </div>
+
+  <div id="ending-section" class="hidden">
+    <p class="ending-line">夜航，「 第三航次 」，已结束。</p>
+  </div>
+
+  <div id="action-area" class="hidden">
+    <button id="show-newspaper-btn" class="action-btn">确定</button>
+  </div>
+</div>
+
+<div id="page-counter">29/30</div>
+
+<script type="module" src="/src/pages/ending/disclose.ts"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* ============================================================
+   结局二：保持沉默（页面㉚）
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.hidden { display: none !important; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  color: #B8C4D0;
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, sans-serif;
+}
+
+#stage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* ---- 逐句 ---- */
+#lines-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.line-item {
+  font-size: 15px;
+  color: #8A9AAA;
+  line-height: 2;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  width: 100%;
+}
+
+.line-item.visible { opacity: 1; }
+
+.line-gold {
+  color: #C8B898;
+  font-style: italic;
+}
+
+.line-ending {
+  font-size: 20px;
+  color: #C8B898;
+  font-weight: bold;
+  letter-spacing: 6px;
+  text-shadow: 0 0 20px rgba(200, 180, 140, 0.15);
+}
+
+/* ---- 确定按钮 ---- */
+#action-area {
+  margin-top: 32px;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+#action-area.visible { opacity: 1; }
+
+.action-btn {
+  padding: 8px 36px;
+  border: 1px solid #3A4A5A;
+  background: transparent;
+  color: #7A8A9A;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  border-color: #6A7A8A;
+  color: #C8BEA4;
+}
+
+/* ---- 页码 ---- */
+#page-counter {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: rgba(200, 180, 140, 0.2);
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+}

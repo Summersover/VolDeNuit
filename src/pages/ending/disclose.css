@@ -1,0 +1,161 @@
+/* ============================================================
+   结局一：公之于众（页面㉙）
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  color: #B8C4D0;
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, sans-serif;
+}
+
+#stage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* ---- 逐句 ---- */
+#lines-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.line-item {
+  font-size: 15px;
+  color: #8A9AAA;
+  line-height: 2;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  width: 100%;
+}
+
+.line-item.visible { opacity: 1; }
+
+.line-gold {
+  color: #C8B898;
+  font-style: italic;
+}
+
+/* ---- 确定按钮 ---- */
+#action-area {
+  margin-top: 32px;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+#action-area.visible { opacity: 1; }
+#action-area.hidden { display: none; }
+
+.action-btn {
+  padding: 8px 36px;
+  border: 1px solid #3A4A5A;
+  background: transparent;
+  color: #7A8A9A;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  border-color: #6A7A8A;
+  color: #C8BEA4;
+}
+
+/* ---- 报纸 ---- */
+#newspaper-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+#newspaper-section.visible { opacity: 1; }
+#newspaper-section.hidden { display: none; }
+
+#newspaper-placeholder {
+  width: 400px;
+  height: 280px;
+  border: 2px solid #3A4A5A;
+  background: #0A0E16;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.np-ph-icon { font-size: 48px; opacity: 0.5; }
+.np-ph-text { font-size: 13px; color: #4A5A6A; }
+
+/* ……按钮（带边框） */
+.dots-box {
+  border: 1px solid #3A4A5A;
+  padding: 8px 40px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.dots-box:hover {
+  border-color: #6A7A8A;
+}
+
+.dots-box .dots-text {
+  font-size: 20px;
+  font-weight: normal;
+  color: #5A6A7A;
+  letter-spacing: 6px;
+  transition: color 0.2s;
+}
+
+.dots-box:hover .dots-text {
+  color: #8A9AAA;
+}
+
+/* ---- 终幕 ---- */
+#ending-section {
+  padding-top: 40px;
+  opacity: 0;
+  transition: opacity 2s ease-out;
+}
+
+#ending-section.hidden { display: none; }
+#ending-section.visible { opacity: 1; }
+
+.ending-line {
+  font-size: 20px;
+  color: #C8B898;
+  font-weight: bold;
+  letter-spacing: 6px;
+  text-shadow: 0 0 20px rgba(200, 180, 140, 0.15);
+}
+
+/* ---- 页码 ---- */
+#page-counter {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: rgba(200, 180, 140, 0.2);
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+}
