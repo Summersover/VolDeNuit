@@ -23,6 +23,7 @@ export default defineConfig({
         cellar: resolve(__dirname, 'post/cellar.html'),
         beaconholder: resolve(__dirname, 'user/beacon_holder.html'),
         gambit: resolve(__dirname, 'user/gambit.html'),
+        vega: resolve(__dirname, 'user/vega.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

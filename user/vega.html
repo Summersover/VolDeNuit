@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vega的个人主页 - 夜航论坛</title>
+  <link rel="stylesheet" href="/src/pages/user/vega.css" />
+</head>
+<body>
+
+<div id="container">
+  <!-- ====== 顶栏 ====== -->
+  <div id="header">
+    <div id="header-top">
+      <div id="logo">
+        <span class="logo-night">夜航</span>
+        <span class="logo-sub">—— 飞行员的夜航手册</span>
+      </div>
+      <div id="header-search">
+        <input type="text" id="search-input" placeholder="搜索帖子、用户…" maxlength="50" />
+        <button id="search-btn">搜索</button>
+        <div id="search-panel" class="hidden">
+          <div id="search-history">
+            <div class="panel-header">搜索历史 <a href="#" id="clear-history">清空</a></div>
+            <ul id="history-list"></ul>
+          </div>
+          <div id="search-result" class="hidden">
+            <div class="panel-header">搜索结果</div>
+            <div id="result-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nav">
+      <ul>
+        <li><a href="/board/tower">塔台</a></li>
+        <li><a href="/board/lounge">候机室</a></li>
+        <li><a href="/board/deepspace">深空</a></li>
+        <li><a href="/board/blindzone">盲区</a></li>
+      </ul>
+      <span id="nav-welcome">欢迎您，<strong>访客</strong></span>
+    </div>
+  </div>
+
+  <!-- ====== 面包屑 ====== -->
+  <div id="breadcrumb">
+    <a href="/board/lounge">候机室——水区</a>
+    <span class="sep">›</span>
+    <span class="current">用户中心</span>
+    <span class="sep">›</span>
+    <span class="current">Vega</span>
+  </div>
+
+  <!-- ====== 锁屏状态（密码未解锁时显示） ====== -->
+  <div id="lock-screen" class="lock-visible">
+    <div id="lock-box">
+      <div id="lock-icon">🔒</div>
+      <p class="lock-title">此页面已上锁</p>
+      <p class="lock-hint">请输入密码以查看该用户主页</p>
+      <div class="lock-input-row">
+        <input type="password" id="lock-password" placeholder="请输入密码" maxlength="100" />
+        <button id="lock-submit">确认</button>
+      </div>
+      <p id="lock-error" class="hidden">密码错误，请重试</p>
+      <p class="lock-footer">提示：这个人的个人简介上好像有什么线索……</p>
+    </div>
+  </div>
+
+  <!-- ====== 用户主页内容（解锁后显示） ====== -->
+  <div id="profile-content" class="content-hidden">
+
+    <!-- 私信箱入口 -->
+    <div id="drafts-entry">
+      <a href="/user/vega/drafts" id="drafts-link" title="私信草稿">✉</a>
+    </div>
+
+    <!-- 用户信息卡 -->
+    <div id="profile-card">
+      <div id="profile-avatar">
+        <div class="avatar-svg-wrapper">
+          <svg width="80" height="80" viewBox="0 0 80 80">
+            <rect width="80" height="80" fill="#2A2A3A" rx="4"/>
+            <circle cx="40" cy="30" r="15" fill="#4A6A8A"/>
+            <ellipse cx="40" cy="64" rx="24" ry="18" fill="#4A6A8A"/>
+          </svg>
+        </div>
+      </div>
+      <div id="profile-info">
+        <h2 id="profile-username">Vega</h2>
+        <p class="profile-group">用户组：<span class="group-mod">版主</span></p>
+        <p class="profile-level">Lv.8</p>
+        <table id="profile-stats">
+          <tr>
+            <td class="stat-label">注册时间</td>
+            <td class="stat-value">2014-06-29</td>
+          </tr>
+          <tr>
+            <td class="stat-label">最后活跃</td>
+            <td class="stat-value">2016-09-23 03:30</td>
+          </tr>
+          <tr>
+            <td class="stat-label">主题数</td>
+            <td class="stat-value">12</td>
+          </tr>
+          <tr>
+            <td class="stat-label">回复数</td>
+            <td class="stat-value">234</td>
+          </tr>
+          <tr>
+            <td class="stat-label">积分</td>
+            <td class="stat-value">1890</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 已注销提示 -->
+    <div id="deactivated-notice">
+      <div class="notice-icon">⛔</div>
+      <p>该用户已注销</p>
+      <p class="notice-sub">所有公开内容已被删除或隐藏。</p>
+    </div>
+
+    <!-- 个人简介（隐藏，需密码B解锁） -->
+    <div id="bio-section">
+      <div id="bio-header">
+        <span class="bio-label">个人简介</span>
+        <span id="bio-status" class="bio-locked">已隐藏</span>
+      </div>
+      <div id="bio-locked" class="bio-locked-area">
+        <p class="bio-hint">个人简介已被用户隐藏。输入验证密码查看。</p>
+        <div class="bio-input-row">
+          <input type="password" id="bio-password" placeholder="我最爱的一句话？" maxlength="100" />
+          <button id="bio-submit">解锁</button>
+        </div>
+        <p id="bio-error" class="hidden">密码错误</p>
+      </div>
+      <div id="bio-content" class="hidden">
+        <div class="bio-text-box">
+          <p class="bio-quote">「霄汉，你藏的东西，除了我，也许还会有人能找到。那人还不知道自己的命运，就像夜航的飞行员，什么也看不见。但没关系，<strong class="clue-highlight">月亮是夜航的朋友。去找月亮吧，当你越接近它的时候，真相也就越明了。</strong>在它的注视下冥冥一切终将昭雪。」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 没有更多内容 -->
+    <div id="empty-footnote">
+      <p>—— 已无更多记录 ——</p>
+    </div>
+
+  </div>
+
+  <!-- ====== 页脚 ====== -->
+  <div id="footer">
+    <div class="footer-links">
+      <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
+      <a href="/board/deepspace">深空</a> · <a href="/board/blindzone">盲区</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2014-2016 夜航. All rights reserved. 「 第三航次 」
+    </div>
+  </div>
+</div>
+
+<!-- ====== 全局页面进度标签 ====== -->
+<div id="page-counter-fixed">19/30</div>
+
+<script type="module" src="/src/pages/user/vega.ts"></script>
+</body>
+</html>
