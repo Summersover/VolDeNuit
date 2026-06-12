@@ -162,8 +162,8 @@ function initLockScreen(): void {
     addPathLog('密码C正确 → beacon_holder主页内容解锁')
   }
 
-  // 如果已经解锁过，直接显示内容
-  if (isUnlocked('pw_c')) {
+  // 如果已经在本页解锁过，直接显示内容
+  if (localStorage.getItem('nf_unlock_beacon') === '1') {
     showContent()
     return
   }
@@ -174,7 +174,7 @@ function initLockScreen(): void {
   function attemptUnlock(): void {
     const val = pwInput.value.trim()
     if (verifyPassword(val)) {
-      unlock('pw_c')
+      localStorage.setItem('nf_unlock_beacon', '1')
       addPathLog('密码C验证成功 → 解锁用户主页')
       errorEl.classList.add('hidden')
       showContent()

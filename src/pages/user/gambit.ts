@@ -156,7 +156,7 @@ function initLockScreen(): void {
     addPathLog('密码C正确 → Gambit主页内容解锁')
   }
 
-  if (isUnlocked('pw_c')) {
+  if (localStorage.getItem('nf_unlock_gambit') === '1') {
     showContent()
     return
   }
@@ -166,7 +166,7 @@ function initLockScreen(): void {
   function attemptUnlock(): void {
     const val = pwInput.value.trim()
     if (verifyPassword(val)) {
-      unlock('pw_c')
+      localStorage.setItem('nf_unlock_gambit', '1')
       addPathLog('密码C验证成功 → 解锁用户主页')
       errorEl.classList.add('hidden')
       showContent()

@@ -158,8 +158,8 @@ function initLockScreen(): void {
     addPathLog('密码正确 → Vega主页解锁')
   }
 
-  // 如果已解锁密码C，直接显示内容
-  if (isUnlocked('pw_c') || isUnlocked('pw_b')) {
+  // 如果已在本页解锁过，直接显示内容
+  if (localStorage.getItem('nf_unlock_vega') === '1') {
     showContent()
     return
   }
@@ -169,12 +169,13 @@ function initLockScreen(): void {
   function attemptUnlock(): void {
     const val = pwInput.value.trim()
     if (matchPw(val, PASSWORD_C)) {
-      unlock('pw_c')
+      localStorage.setItem('nf_unlock_vega', '1')
       addPathLog('密码C验证成功 → 解锁Vega主页')
       errorEl.classList.add('hidden')
       showContent()
     } else if (matchPw(val, PASSWORD_B)) {
-      unlock('pw_b')
+      localStorage.setItem('nf_unlock_vega', '1')
+      localStorage.setItem('nf_unlock_vega_bio', '1')
       addPathLog('密码B验证成功 → 解锁Vega主页')
       errorEl.classList.add('hidden')
       showContent()
@@ -216,8 +217,8 @@ function initBioUnlock(): void {
   const submitBtn = document.getElementById('bio-submit') as HTMLButtonElement
   const errorEl = document.getElementById('bio-error')!
 
-  // 如果已解锁密码B，直接显示
-  if (isUnlocked('pw_b')) {
+  // 如果已在本页解锁过个人简介，直接显示
+  if (localStorage.getItem('nf_unlock_vega_bio') === '1') {
     revealBio()
     return
   }
@@ -225,7 +226,7 @@ function initBioUnlock(): void {
   function attemptUnlock(): void {
     const val = pwInput.value.trim()
     if (matchPw(val, PASSWORD_B)) {
-      unlock('pw_b')
+      localStorage.setItem('nf_unlock_vega_bio', '1')
       errorEl.classList.add('hidden')
       revealBio()
     } else {
