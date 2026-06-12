@@ -1,0 +1,125 @@
+/* ============================================================
+   Vega未发送站内信（extra4）
+   站内信草稿风格 · 深色
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 14px; }
+
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, Arial, sans-serif;
+  background: #05080C;
+  color: #9A8BB8;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+a { color: #8A7AB0; text-decoration: none; }
+a:hover { color: #C8A060; }
+
+#container {
+  width: 100%; max-width: 900px; min-width: 600px; min-height: 100vh;
+  margin: 0 auto; background: #0A0F18; box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  display: flex; flex-direction: column;
+}
+
+#header {
+  background: linear-gradient(180deg, #0E0A18 0%, #120E25 40%, #1A1230 100%);
+  border-bottom: 1px solid #2A1E42;
+}
+#header-top { padding: 16px 24px 10px; }
+#logo { display: flex; align-items: baseline; gap: 10px; }
+.logo-night { font-size: 24px; font-weight: bold; color: #C8BEA8; letter-spacing: 4px; }
+.logo-sub { font-size: 12px; color: #5A4A7A; }
+
+#nav {
+  padding: 0 24px; height: 32px;
+  background: linear-gradient(180deg, #0A0812 0%, #0E0C1C 100%);
+  border-top: 1px solid #1A1230;
+}
+#nav ul { display: flex; gap: 0; list-style: none; }
+#nav ul li a {
+  display: block; padding: 0 16px; height: 32px; line-height: 32px;
+  color: #7A6A9A; font-size: 12px; font-weight: bold;
+  border-right: 1px solid #1A1230;
+}
+#nav ul li a:hover { color: #C8A060; text-decoration: none; }
+
+#breadcrumb { padding: 6px 24px; font-size: 11px; color: #6A5A7A; background: #0A0815; border-bottom: 1px solid #12101E; }
+#breadcrumb .sep { margin: 0 6px; color: #3A2A4A; }
+#breadcrumb a { color: #7A6A9A; }
+
+#main { flex: 1; padding: 24px; max-width: 680px; margin: 0 auto; width: 100%; }
+
+/* ---- 草稿提示 ---- */
+.draft-notice {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; background: #0E0C18; border: 1px solid #1A1430;
+  margin-bottom: 16px; font-size: 12px; color: #7A6A5A;
+}
+.draft-icon { font-size: 14px; }
+.draft-label { font-weight: bold; letter-spacing: 2px; }
+
+/* ---- 站内信容器 ---- */
+#pm-container {
+  border: 1px solid #1A1428; background: #0A0F18;
+}
+
+#pm-header {
+  padding: 14px 20px; border-bottom: 1px solid #1A1428;
+  background: #0E0A1A;
+}
+.pm-field { font-size: 12px; color: #6A5A7A; padding: 3px 0; }
+.pm-label { color: #4A3A5A; font-weight: bold; }
+
+#pm-body {
+  padding: 20px; font-size: 13.5px; line-height: 2; color: #9A8BB8;
+}
+#pm-body p { margin-bottom: 10px; }
+#pm-body p:first-child { font-weight: bold; color: #BEA888; }
+#pm-body p:last-child { margin-top: 16px; color: #8A7AB0; font-style: italic; }
+
+/* ---- 底部按钮 ---- */
+#pm-footer {
+  padding: 12px 20px; border-top: 1px solid #1A1428;
+  display: flex; gap: 8px; justify-content: flex-end;
+}
+
+.btn-send, .btn-discard {
+  padding: 6px 24px; border: 1px solid #2A1E42;
+  font-size: 13px; font-family: inherit; cursor: pointer;
+}
+
+.btn-send {
+  background: #2A1E42; color: #C8BEA8; position: relative;
+}
+
+.btn-discard { background: #120E20; color: #6A5A7A; }
+.btn-discard:hover { background: #1A1428; }
+
+/* ---- 光标提示 ---- */
+#pm-cursor-note {
+  margin-top: 8px; text-align: center;
+  font-size: 11px; color: #4A3A5A; font-style: italic;
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  color: #8A7AB0; font-size: 14px;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---- Footer ---- */
+#footer { padding: 16px 24px; background: #0A0812; border-top: 1px solid #1A1428; text-align: center; font-size: 12px; color: #4A3A5A; line-height: 2; }
+.footer-links a { color: #6A5A7A; margin: 0 2px; }
+.footer-copy { color: #3A2A4A; }
+
+/* ---- Page Counter ---- */
+#page-counter {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  font-family: 'Georgia', serif; font-size: 13px;
+  color: rgba(0,0,0,0.5); background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;
+  padding: 4px 10px; letter-spacing: 0.5px;
+  user-select: none; pointer-events: none;
+}

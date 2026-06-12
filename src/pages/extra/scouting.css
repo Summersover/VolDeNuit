@@ -1,0 +1,127 @@
+/* ============================================================
+   beacon_holder踩点帖（extra3）
+   论坛帖风格 · 无人回复 · 孤寂感
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 14px; }
+
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, Arial, sans-serif;
+  background: #0B0F15;
+  color: #B8C4D0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: #7BA7D0; text-decoration: none; }
+a:hover { color: #E0B040; text-decoration: underline; }
+
+#archive-banner {
+  background: #1A1A10;
+  border-bottom: 1px solid #3A3A20;
+  padding: 6px 24px;
+  font-size: 12px;
+  color: #8A8A5A;
+  text-align: center;
+}
+
+#container {
+  width: 100%;
+  max-width: 900px;
+  min-width: 600px;
+  margin: 0 auto;
+  background: #0F1420;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  min-height: 100vh;
+}
+
+#header {
+  background: linear-gradient(180deg, #0F1A2E 0%, #14233D 40%, #1A2D4A 100%);
+  border-bottom: 1px solid #2A4060;
+}
+
+#header-top { padding: 16px 24px 10px; }
+#logo { display: flex; align-items: baseline; gap: 10px; }
+.logo-night { font-size: 24px; font-weight: bold; color: #E8DCC4; letter-spacing: 4px; }
+.logo-sub { font-size: 12px; color: #5A7A96; }
+
+#nav {
+  padding: 0 24px; height: 32px;
+  background: linear-gradient(180deg, #0D1520 0%, #111B2A 100%);
+  border-top: 1px solid #1A2D4A;
+}
+#nav ul { display: flex; gap: 0; list-style: none; }
+#nav ul li a {
+  display: block; padding: 0 16px; height: 32px; line-height: 32px;
+  color: #6A8AAA; font-size: 12px; font-weight: bold;
+  border-right: 1px solid #1A2D4A; transition: color 0.12s;
+}
+#nav ul li a:hover { color: #E0B040; background: rgba(255,255,255,0.03); text-decoration: none; }
+
+#breadcrumb {
+  padding: 6px 24px; font-size: 11px; color: #5A7A8A;
+  background: #0E1522; border-bottom: 1px solid #1A2A3A;
+}
+#breadcrumb .sep { margin: 0 6px; color: #3A5A6A; }
+
+#main { padding: 16px 24px 24px; }
+
+#post-area { background: #101624; border: 1px solid #1E2A3A; margin-bottom: 8px; }
+#post-header { padding: 14px 20px 10px; border-bottom: 1px solid #1E2A3A; }
+#post-title { font-size: 20px; color: #E8DCC4; font-weight: bold; margin-bottom: 4px; }
+#post-meta { font-size: 11px; color: #5A7A8A; display: flex; flex-wrap: wrap; }
+.meta-sep { margin: 0 8px; color: #2A3A4A; }
+
+.thread-toolbar {
+  background: #0C1320; border-bottom: 1px solid #1E2A3A;
+  padding: 6px 20px; font-size: 11px;
+}
+.toolbar-notice { color: #5A7A6A; }
+
+.post { border-bottom: 1px solid #192430; }
+.post-inner { display: flex; min-height: 80px; }
+
+.post-user {
+  width: 140px; flex-shrink: 0; background: #0C1420;
+  border-right: 1px solid #1E2A3A; padding: 12px 8px;
+  text-align: center; font-size: 11px; color: #4A5A6A;
+}
+.pui-avatar { margin: 0 auto 6px; width: 56px; height: 56px; }
+.pui-avatar-img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid #3A2A1A; display: block; object-fit: cover; }
+.pui-name { font-size: 13px; font-weight: bold; color: #7BA7D0; margin-bottom: 2px; }
+.pui-level { font-size: 10px; color: #4A5A6A; margin-bottom: 6px; }
+.pui-stats { font-size: 10px; color: #3A4A5A; line-height: 1.6; }
+
+.post-content { flex: 1; padding: 10px 16px; }
+.post-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 11px; color: #4A5A6A; }
+.postnum { color: #5A7A8A; font-weight: bold; }
+.postdate { color: #3A5A6A; }
+.post-body p { font-size: 13px; line-height: 1.8; color: #B8C4D0; margin-bottom: 12px; }
+
+.scout-photos { display: flex; gap: 12px; margin: 12px 0; flex-wrap: wrap; }
+.scout-photo { flex: 1; min-width: 200px; }
+.photo-box {
+  border: 1px solid #2A3A4A; background: #0A121E;
+  padding: 20px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.photo-icon { font-size: 36px; opacity: 0.5; }
+.photo-label { font-size: 11px; color: #4A5A6A; }
+
+.post-foot { padding: 6px 16px 8px; text-align: right; }
+.rep-count { font-size: 11px; color: #3A4A5A; }
+
+#comments-area { background: #101624; border: 1px solid #1E2A3A; }
+.reply-header { padding: 8px 20px; font-size: 12px; color: #6A8AAA; font-weight: bold; background: #0C1320; border-bottom: 1px solid #1E2A3A; }
+.no-reply { padding: 24px; text-align: center; font-size: 12px; color: #4A5A6A; font-style: italic; }
+
+#page-counter {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  font-family: 'Georgia', serif; font-size: 13px;
+  color: rgba(0,0,0,0.5); background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;
+  padding: 4px 10px; letter-spacing: 0.5px;
+  user-select: none; pointer-events: none;
+}

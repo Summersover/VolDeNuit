@@ -1,0 +1,303 @@
+/* ============================================================
+   圣埃克苏佩里百科页（extra1）
+   维二百科风格 · 独立页面
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 14px; }
+
+body {
+  font-family: 'Microsoft YaHei', '宋体', SimSun, Arial, sans-serif;
+  background: #F6F6F6;
+  color: #252525;
+  line-height: 1.7;
+}
+
+a { color: #0645AD; text-decoration: none; }
+a:visited { color: #0B0080; }
+a:hover { color: #3366BB; text-decoration: underline; }
+a:active { color: #FAA700; }
+
+/* ---- 全局布局（仿维基） ---- */
+#global-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---- 左侧边栏 ---- */
+#mw-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  padding: 16px 0 0 8px;
+  font-size: 12px;
+}
+
+.portal { margin-bottom: 12px; }
+
+.portal-logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #54595D;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+}
+
+.portal-tagline {
+  font-size: 10px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.portal-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #54595D;
+  margin-bottom: 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #C8CCD1;
+}
+
+.portal ul { list-style: none; }
+.portal li { padding: 2px 0; }
+.portal li a { color: #0645AD; font-size: 12px; }
+
+/* ---- 主内容区 ---- */
+.mw-body {
+  margin-left: 170px;
+  margin-right: 10px;
+  background: #FFF;
+  border: 1px solid #A7D7F9;
+  border-right-width: 0;
+  padding: 20px 24px 24px;
+  min-height: 600px;
+  line-height: 1.8;
+}
+
+/* ---- 标题 ---- */
+.first-heading {
+  font-size: 28px;
+  font-weight: normal;
+  border-bottom: 1px solid #A2A9B1;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #000;
+}
+
+/* ---- 信息框 ---- */
+.infobox {
+  float: right;
+  clear: right;
+  width: 280px;
+  margin: 0 0 16px 20px;
+  border: 1px solid #A2A9B1;
+  background: #F8F9FA;
+  border-collapse: collapse;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.infobox-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 8px;
+  background: #EAECF0;
+  color: #000;
+}
+
+.infobox .infobox-title {
+  text-align: center;
+}
+
+.infobox-sub {
+  text-align: center;
+  font-size: 11px;
+  color: #54595D;
+  padding: 4px 8px 8px;
+}
+
+.infobox-img {
+  text-align: center;
+  padding: 8px 0;
+  border-top: 1px solid #EAECF0;
+  border-bottom: 1px solid #EAECF0;
+}
+
+.portrait-placeholder {
+  font-size: 36px;
+  color: #888;
+}
+
+.infobox th {
+  text-align: left;
+  padding: 4px 8px;
+  color: #333;
+  font-weight: bold;
+  white-space: nowrap;
+  width: 80px;
+  vertical-align: top;
+  background: #F8F9FA;
+}
+
+.infobox td {
+  padding: 4px 8px;
+  color: #252525;
+  vertical-align: top;
+}
+
+.infobox-sig {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #555;
+}
+
+/* ---- 导言 ---- */
+.lead {
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-indent: 0;
+}
+
+.lead b { color: #000; }
+
+/* ---- 目录 ---- */
+#toc {
+  clear: both;
+  border: 1px solid #A2A9B1;
+  background: #F8F9FA;
+  padding: 10px 16px;
+  margin: 8px 0 16px;
+  max-width: 400px;
+  font-size: 12px;
+}
+
+.toc-title {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+#toc ul { list-style: none; }
+#toc > ul { margin-left: 0; }
+#toc ul ul { margin-left: 20px; }
+#toc li { padding: 2px 0; }
+#toc a { color: #0645AD; }
+
+/* ---- 段落标题 ---- */
+.section-title {
+  font-size: 20px;
+  font-weight: normal;
+  border-bottom: 1px solid #A2A9B1;
+  padding-bottom: 4px;
+  margin: 28px 0 14px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #000;
+  clear: both;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 20px 0 10px;
+  color: #000;
+}
+
+.mw-headline { font-weight: normal; }
+
+/* ---- 正文 ---- */
+.mw-body p {
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-indent: 2em;
+  color: #252525;
+}
+
+/* ---- 作品列表 ---- */
+.work-list {
+  list-style: none;
+  margin: 12px 0;
+}
+
+.work-list li {
+  padding: 6px 0 6px 20px;
+  font-size: 14px;
+  color: #252525;
+  position: relative;
+}
+
+.work-list li::before {
+  content: "·";
+  position: absolute;
+  left: 6px;
+  color: #0645AD;
+  font-weight: bold;
+}
+
+.work-list li b { color: #000; }
+
+/* ---- 参考资料 ---- */
+#references {
+  margin-top: 28px;
+  padding-top: 12px;
+  border-top: 1px solid #A2A9B1;
+  font-size: 12px;
+  color: #54595D;
+}
+
+.ref-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+#references ol {
+  margin-left: 24px;
+}
+
+#references li {
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+/* ---- 页脚 ---- */
+#footer {
+  margin-left: 170px;
+  margin-right: 10px;
+  padding: 12px 24px;
+  font-size: 11px;
+  color: #54595D;
+}
+
+#footer ul { list-style: none; }
+#footer li { padding: 2px 0; }
+#footer a { color: #0645AD; }
+#footer-places {
+  margin-top: 6px;
+  display: flex;
+  gap: 12px;
+}
+
+/* ---- 页码 ---- */
+#page-counter {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+}

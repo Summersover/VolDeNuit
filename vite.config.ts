@@ -35,6 +35,10 @@ export default defineConfig({
         finalArchive: resolve(__dirname, 'post/final-archive.html'),
         endingDisclose: resolve(__dirname, 'ending/disclose.html'),
         endingSilence: resolve(__dirname, 'ending/silence.html'),
+        saintex: resolve(__dirname, 'saint-exupery/index.html'),
+        farewell: resolve(__dirname, 'farewell/index.html'),
+        scouting: resolve(__dirname, 'post/scouting-2014.html'),
+        vegaDrafts: resolve(__dirname, 'user/vega/drafts.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',
