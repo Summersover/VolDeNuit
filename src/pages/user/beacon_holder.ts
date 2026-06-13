@@ -12,7 +12,7 @@
  */
 
 import '../../shared/state'
-import { addPathLog, addSearchHistory, removeSearchHistory, isUnlocked, unlock } from '../../shared/state'
+import { addPathLog, addSearchHistory, removeSearchHistory, isUnlocked, unlock, setState } from '../../shared/state'
 import { search as doSearch, getSearchHistory } from '../../shared/search'
 import type { SearchResult } from '../../shared/types'
 import { checkAccess } from '../../shared/guard'
@@ -159,6 +159,7 @@ function initLockScreen(): void {
   function showContent(): void {
     lockScreen.classList.add('lock-hidden')
     profileContent.classList.remove('content-hidden')
+    setState('bh_visited', true)
     addPathLog('密码C正确 → beacon_holder主页内容解锁')
   }
 

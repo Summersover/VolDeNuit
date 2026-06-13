@@ -10,9 +10,10 @@
  */
 
 import '../../shared/state'
-import { addPathLog, addSearchHistory, removeSearchHistory, isUnlocked, unlock } from '../../shared/state'
+import { addPathLog, addSearchHistory, removeSearchHistory, isUnlocked, unlock, getState } from '../../shared/state'
 import { search as doSearch, getSearchHistory } from '../../shared/search'
 import type { SearchResult } from '../../shared/types'
+import { checkAccess } from '../../shared/guard'
 
 /* ============================================================
    密码
@@ -263,6 +264,14 @@ function initDraftsLink(): void {
    ============================================================ */
 
 function init(): void {
+  // 检查访问权限：需先解锁beacon_holder主页
+  const { allowed } = checkAccess(window.location.pathname)
+  if (!allowed) {
+    addPathLog('Vega主页 → 访问被拒（未查看beacon_holder）')
+    document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0A1628;color:#4A6A7A;font-size:14px;">页面未找到</div>'
+    return
+  }
+
   addPathLog('进入Vega主页（页面⑲）')
 
   initLockScreen()

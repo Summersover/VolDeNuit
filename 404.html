@@ -30,10 +30,8 @@
   var isRoot = path === '' || path === '/VolDeNuit'
 
   if (isRoot) {
-    // 根路径 → 跳转深空版块
     window.location.replace('./board/deepspace')
   } else {
-    // 不存在的路径 → 显示 404 彩蛋
     document.getElementById('stage').classList.remove('hidden')
     document.getElementById('confirm-btn').classList.remove('hidden')
     document.getElementById('entry-link').classList.remove('hidden')

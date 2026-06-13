@@ -4,7 +4,7 @@ export type PasswordId = 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
 /** 全局状态键（不含 nf_ 前缀） */
 export type StateKey =
   | 'pw_a' | 'pw_b' | 'pw_c' | 'pw_d' | 'pw_e' | 'pw_f'
-  | 'edit_log_visited' | 'bz2_visited' | 'completed'
+  | 'edit_log_visited' | 'bz2_visited' | 'bh_visited' | 'completed'
   | 'ip' | 'path_log' | 'search_history'
 
 /** 各状态键对应的值类型 */
@@ -17,6 +17,7 @@ export interface StateTypes {
   pw_f: boolean
   edit_log_visited: boolean
   bz2_visited: boolean
+  bh_visited: boolean
   completed: boolean
   ip: string
   path_log: string[]

@@ -36,7 +36,7 @@ export function checkAccess(path: string): GuardResult {
     }),
 
     '/user/vega': () => ({
-      allowed: getState('pw_c'),
+      allowed: getState('bh_visited') || localStorage.getItem('nf_unlock_beacon') === '1',
       action: 'show-404',
     }),
 

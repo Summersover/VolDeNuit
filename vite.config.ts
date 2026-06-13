@@ -2,8 +2,8 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: '/VolDeNuit/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/VolDeNuit/' : '/',
   build: {
     rollupOptions: {
       input: {
@@ -42,6 +42,7 @@ export default defineConfig({
         vegaDrafts: resolve(__dirname, 'user/vega/drafts.html'),
         flightPath: resolve(__dirname, 'flight-path/index.html'),
         statement: resolve(__dirname, 'statement/index.html'),
+        page404: resolve(__dirname, '404.html'),
         memoirXutian: resolve(__dirname, 'memoir/xutian.html'),
         gambitArchive: resolve(__dirname, 'user/gambit/archive.html'),
         gambitPm: resolve(__dirname, 'user/gambit/pm.html'),
@@ -59,4 +60,4 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
-})
+}))

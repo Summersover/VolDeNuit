@@ -21,6 +21,7 @@ const DEFAULTS: StateTypes = {
   pw_f: false,
   edit_log_visited: false,
   bz2_visited: false,
+  bh_visited: false,
   completed: false,
   ip: randomIP(),
   path_log: [],

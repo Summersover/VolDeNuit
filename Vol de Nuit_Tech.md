@@ -1,6 +1,6 @@
 # 《夜航》—— 技术实现文档
 
-> 最后更新：2026年6月12日
+> 最后更新：2026年6月13日
 >
 > **说明：** 本文档是剧本文档（Vol de Nuit.md）的技术配套，记录所有路由、交互、状态管理等实现细节。严格对照剧本文档编写。
 
@@ -77,7 +77,9 @@
 |------|------|---------|------|
 | `/user/beacon_holder` | **⑭** | 密码C | 邮箱前半段、Δ头像、隐藏弹窗、踩点帖→`/post/scouting-2014`（extra3） |
 | `/user/gambit` | **⑮** | 密码C | 空白，右上角"档案"→`/user/gambit/archive` |
-| `/user/gambit/archive` | **⑯**（内含⑰私信记录+⑱自白信） | — | 私信记录+自白信 |
+| `/user/gambit/archive` | **⑯**（内含⑰私信记录+⑱恐吓信） | — | 档案列表页，点击打开私信记录（⑰）和恐吓信（⑱） |
+| `/user/gambit/pm` | **⑰** | — | 私信记录（与隼的站内私信） |
+| `/user/gambit/confession` | **⑱** | — | 恐吓信扫描图片（原自白信改为extra6陈述） |
 | `/user/vega` | **⑲** | 密码C | 内容已删，个人简介需密码B |
 
 ### 2.5 外部线索页（搜索触发）
@@ -106,9 +108,10 @@
 
 | 路径 | 对应 | 解锁条件 | 内容 |
 |------|------|---------|------|
-| `/final-archive` | **㉘** | 密码D | 霄汉最后一封信+站内信+监控日志+两个选择按钮 |
-| `/ending/disclose` | **㉙** | 在㉘中选择一 | 报纸+铅笔威胁+"第三航次已结束" |
-| `/ending/silence` | **㉚** | 在㉘中选择二 | "有些门"+第四航次+"第三航次已结束" |
+| `/post/final-archive` | **㉘** | 密码D | 霄汉最后一封信+站内信+监控日志+选择按钮（同时支持`/final-archive`路径访问） |
+| `/ending/choice` | — | 在㉘中选择后跳转 | 中间页：公之于众 / 保持沉默 两个按钮 |
+| `/ending/disclose` | **㉙** | `completed==true` | 报纸+铅笔威胁+"第三航次已结束" |
+| `/ending/silence` | **㉚** | `completed==true` | "有些门"+第四航次+"第三航次已结束" |
 
 ### 2.8 特殊页面
 
@@ -130,7 +133,7 @@
 | 徐山 | `/external/missing` |
 | 正造招聘 2013 | `/external/zhengzao/recruitment` |
 | Vol de Nuit / VoldeNuit / vol de nuit / voldenuit / 夜航 | `/saint-exupery/`（extra1） |
-| 徐天 | `/memoir/xutian`（extra7） |
+| 徐天 | `/memoir/xutian.html`（extra7） |
 
 ### 普通搜索（返回论坛站内结果）
 
@@ -140,7 +143,7 @@
 | 波利比奥斯 | 科普帖（末尾有工具页链接） |
 | beacon_holder | 个人主页（需密码C解锁），主页有踩点帖可点击进入（extra3） |
 | Gambit | 个人主页（需密码C解锁），主页右上角"档案"→ 档案页（内含私信记录+自白信） |
-| Vega | Vega出现过的帖子列表 |
+| Vega | 大家最喜欢的句子（Vega评论的那条帖子） |
 
 ### 实现规范
 - 搜索框位于导航栏右侧，全局可见
@@ -341,33 +344,15 @@
 
 | # | 事项 | 状态 |
 |---|------|------|
-| 1 | 最终档案的路径名（盲区存档Ⅱ中"路径X"的具体值） | ⏳ 待定 |
-| 2 | 防直接访问最终档案路径——密码D校验 + localStorage状态检查 | ✅ 方案已定（见第九节·页面访问控制） |
-| 3 | 月亮照片裁切的具体尺寸比例 | ⏳ 待定 |
-| 4 | 是否需要音效/背景音乐 | ⏳ 待定 |
-| 5 | 移动端触屏缩放的具体要求 | ⏳ 待定 |
-| 6 | 论坛帖子的模拟数据量（深空50+候机室30的具体内容） | ⏳ 待定 |
-| 7 | 部署方案（Vercel/Netlify/纯静态） | ⏳ 待定 |
-| 8 | 搜索"Vega"时返回的具体帖子列表内容 | ⏳ 待定 |
-| 9 | 正造集团官网所需实景照片素材 | ✅ 5张需求已记录 |
-
-### 正造集团官网 — 实景照片素材清单
-
-页面位于 `external/zhengzao.html`，共需 5 张实景建筑照片：
-
-| # | 位置 | 用途 | 建议尺寸 | 建议风格 | CSS 替换位置 |
-|---|------|------|---------|---------|------------|
-| 1 | Hero 背景 | 阳光新城小区鸟瞰/建筑外景 | 1920×560px+，宽高比>3:1 | 城市天际线/住宅鸟瞰，偏暗或冷色调，便于白色文字叠加 | `#hero-bg` 的 `background` |
-| 2 | 关于正造 | 集团总部/办公楼外观 | 400×300px+，4:3比例 | 明亮通透的建筑外景/玻璃幕墙 | `.about-img-placeholder` 的 `background` |
-| 3 | 项目卡片① | 阳光新城实景 | 360×180px+ | 住宅小区外景/园林，暖色调 | `.project-card:nth-child(1) .project-img` 的 `background` |
-| 4 | 项目卡片② | 正造大厦实景 | 360×180px+ | 写字楼玻璃幕墙，冷色调 | `.project-card:nth-child(2) .project-img` 的 `background` |
-| 5 | 项目卡片③ | 正造广场实景 | 360×180px+ | 商业综合体/商场入口，暖色调 | `.project-card:nth-child(3) .project-img` 的 `background` |
-
-替换方式：将对应 CSS 的 `background` 从渐变色改为 `url('/images/zhengzao/xxx.jpg') center center / cover no-repeat;`。
-
-照片存放路径：项目根目录下的 `public/images/zhengzao/` 文件夹（如不存在则新建）。该目录下的文件在构建后会被复制到 `dist/images/zhengzao/`，可通过 `/images/zhengzao/xxx.jpg` 访问。
-
-Hero 可保留 `#hero-overlay` 渐变层叠提升文字可读性。
+| 1 | 最终档案路径 | ✅ `/post/final-archive`（同时支持 `/final-archive` 301跳转） |
+| 2 | 防直接访问最终档案 | ✅ 密码D校验 + localStorage + guard双重保护 |
+| 3 | 月亮照片裁切 | ✅ 280×200裁切，编辑记录访问后解锁点击 |
+| 4 | 音效/背景音乐 | ❌ 不实现（纯静默浏览体验） |
+| 5 | 移动端适配 | ⏳ 基础响应式已实现，待精细化 |
+| 6 | 帖子模拟数据量 | ✅ 已按剧本配置各版块帖子数据 |
+| 7 | 部署方案 | ✅ GitHub Pages + GitHub Actions自动部署 |
+| 8 | 搜索"Vega" | ✅ 返回"大家最喜欢的句子"帖子 |
+| 9 | 正造集团图片素材 | ✅ 5张已生成、压缩、部署 |
 
 ---
 
@@ -446,6 +431,7 @@ function getProgress(key: string): boolean {
 | `/blindzone/entry/1` | `pw_e == true` | 重定向 `/board/blindzone` 重新输密码 |
 | `/blindzone/entry/2` | `pw_f == true` | 重定向 `/board/blindzone` 重新输密码 |
 | `/final-archive` | `pw_d == true` | 显示空白页 + 标题"404 Not Found" |
+| `/post/final-archive` | `pw_d == true` | 显示空白页 + 标题"404 Not Found" |
 | `/ending/disclose` | `completed == true` | 重定向深空版块 |
 | `/ending/silence` | `completed == true` | 重定向深空版块 |
 
@@ -462,6 +448,45 @@ function getProgress(key: string): boolean {
 
 ---
 
+## 十、部署方案
+
+### 10.1 GitHub Pages 自动部署
+
+使用 GitHub Actions 自动构建并部署到 GitHub Pages。
+
+**工作流程（`.github/workflows/deploy.yml`）：**
+1. 推送 `master` 分支触发
+2. `npm ci` → `npx vite build` → 构建到 `dist/`
+3. 运行 `node scripts/base-path-rewrite.mjs` 修正 HTML/JS 中的绝对路径为带 base 前缀
+4. 上传 `dist/` 到 GitHub Pages
+
+**Base 路径处理：**
+- `vite.config.ts` 根据运行模式自动切换：dev 用 `'/'`，production 用 `'/VolDeNuit/'`
+- 本地 `vite dev`：base 为 `/`，所有路径 `href="/board/tower"` 直接可用
+- 生产构建 `vite build`：base 为 `/VolDeNuit/`，Vite 自动处理资源路径
+- 构建后通过 `scripts/base-path-rewrite.mjs` 脚本将所有 `<a href="/board/...">` 和 `window.open("/user/...")` 等绝对路径改写为带 `/VolDeNuit/` 前缀
+- 根 `index.html` 使用相对路径 `./board/deepspace` 跳转，适配任意 base 环境
+
+### 10.2 404 页面彩蛋 / 论坛入口
+
+`index.html` 和 `404.html` 内容相同，均为深蓝背景的论坛入口/404 页面。
+
+- 居中"夜航" + "第三航次"
+- 底部淡色"→ 进入夜航论坛 ←"链接，点击进入深空版块
+- 淡色"确定"按钮（初始 `opacity:0.35`），逐次点击按钮颜色渐亮
+- 5 次点击文字序列：
+  ① "你点了。然后呢？"
+  ② "也许你找的东西不在这里。"
+  ③ "——但它确实存在。"
+  ④ "问题是你找对地方了吗？"
+  ⑤ "晚安，飞行员。" → 1.5 秒后重定向至深空版块
+
+**行为差异：**
+- `index.html`：Vite dev 模式中作为 fallback 页面，任意不存在路径自动显示
+- `404.html`：GitHub Pages 原生 404 处理，生产环境任意不存在路径显示此页
+
+---
+
 *技术文档结束 —— 严格对照剧本文档（Vol de Nuit.md）编写。如有不一致以剧本文档为准。*
 
 
@@ -472,27 +497,27 @@ function getProgress(key: string): boolean {
 
 ### 1. 探险帖照片（废弃老宅）
 
-替换页面：`post/exploration.html`·photo-grid 区的 4 个 `.photo-placeholder`
+替换页面：`post/exploration.html`
 
 | 文件名 | 用途 | AI 生图 Prompt |
 |--------|------|---------------|
-| `exploration.jpg` | 废弃老宅全景 | 中国废弃老宅，几栋废弃民居挤在一起，院墙半塌，铁门上锈迹斑斑，一栋山墙已爬满藤蔓，窗户用木板封死，下午阴暗光线，真实摄影风格，电影感色调 |
+| `exploration.jpg` | 废弃老宅全景（1张） | 中国废弃老宅，几栋废弃民居挤在一起，院墙半塌，铁门上锈迹斑斑，一栋山墙已爬满藤蔓，窗户用木板封死，下午阴暗光线，真实摄影风格，电影感色调 |
 
 文件路径：`public/images/exploration.jpg`  
-替换方式：修改 `post/exploration.html` 中的 `.photo-grid`，将整个 grid（4 个 `.photo-placeholder`）替换为 `<img class="exploration-photo" src="/images/exploration.jpg" alt="废弃老宅" />`。
+替换方式：`<img class="exploration-photo" src="/images/exploration.jpg" alt="废弃老宅" />`（直接在 post-body 中）
 
 ---
 
 ### 2. 踩点帖照片（beacon_holder 随拍）
 
-替换页面：`post/scouting-2014.html`·`.scout-photos` 区的 2 个 `.photo-box`
+替换页面：`post/scouting-2014.html`
 
 | 文件名 | 用途 | AI 生图 Prompt |
 |--------|------|---------------|
-| `scouting.jpg` | beacon_holder 随手拍的踩点照 | 从路口拍摄的一片待开发区域，前景是黄土路和杂草，远处有几栋老宅屋顶和在建楼盘塔吊，构图随意（像普通游客随手拍），2014年手机摄影风格，低饱和度，偏冷色调 |
+| `scouting.jpg` | beacon_holder 随手拍的踩点照（1张） | 从路口拍摄的一片待开发区域，前景是黄土路和杂草，远处有几栋老宅屋顶和在建楼盘塔吊，构图随意（像普通游客随手拍），2014年手机摄影风格，低饱和度，偏冷色调 |
 
 文件路径：`public/images/scouting.jpg`  
-替换方式：修改 `post/scouting-2014.html`，将 `.scout-photos` 内的两个 `.scout-photo` 替换为 `<img class="scout-photo-img" src="/images/scouting.jpg" alt="阳光新城周边" />`。
+替换方式：`<img class="scout-photo-img" src="/images/scouting.jpg" alt="阳光新城周边" />`
 
 ---
 
@@ -528,21 +553,17 @@ function getProgress(key: string): boolean {
 
 ### 5. 正造地产集团图片 ×5
 
-替换页面：`external/zhengzao.html`
+替换页面：`external/zhengzao.html`（所有图片直接放在 `public/images/` 下）
 
 | 文件名 | 用途 | CSS 选择器 | AI 生图 Prompt |
 |--------|------|-----------|---------------|
-| `zhengzao-hero.jpg` | 首页大横幅（hero） | `#hero-bg` 的 `background-image` | 中国现代化住宅小区鸟瞰图，崭新的高层住宅楼群，绿化景观带，蓝天白云，傍晚暖金色光线，房地产宣传照风格，高饱和度，光照柔和，气势开阔 |
-| `zhengzao-about.jpg` | "关于正造"区配图 | `.about-img-placeholder` 的 `background-image` | 房地产集团总部写字楼外观，现代化玻璃幕墙建筑，前景有旗杆和企业标识，清晨光线，专业企业宣传摄影风格 |
-| `zhengzao-project-1.jpg` | 项目案例1·阳光新城 | `.project-card:nth-child(1) .project-img` 的 `background-image` | 已建成的住宅小区，多栋米色外墙高层住宅楼穿插绿化，小区入口有"阳光新城"字样门牌，日间自然光，实景拍摄风格 |
-| `zhengzao-project-2.jpg` | 项目案例2·水岸花园 | `.project-card:nth-child(2) .project-img` 的 `background-image` | 沿河景观住宅，低密度花园洋房，河岸步道，柳树，水中倒影，傍晚暖色调，宜居氛围 |
-| `zhengzao-project-3.jpg` | 项目案例3·北江国际 | `.project-card:nth-child(3) .project-img` 的 `background-image` | 城市 CBD 核心区的商业综合体，玻璃幕墙写字楼，底层商业裙楼，现代都市感，广角拍摄，冲击力强 |
+| `zhengzao-hero.jpg` | 首页大横幅（hero） | `#hero-bg` | 中国现代化住宅小区鸟瞰图，崭新的高层住宅楼群，绿化景观带，蓝天白云，傍晚暖金色光线，房地产宣传照风格，高饱和度，光照柔和，气势开阔 |
+| `zhengzao-about.jpg` | "关于正造"区配图 | `.about-img-placeholder` | 房地产集团总部写字楼外观，现代化玻璃幕墙建筑，前景有旗杆和企业标识，清晨光线，专业企业宣传摄影风格 |
+| `zhengzao-project-1.jpg` | 项目案例1·阳光新城 | `.project-card:nth-child(1) .project-img` | 已建成的住宅小区，多栋米色外墙高层住宅楼穿插绿化，小区入口有"阳光新城"字样门牌 |
+| `zhengzao-project-2.jpg` | 项目案例2·水岸花园 | `.project-card:nth-child(2) .project-img` | 沿河景观住宅，低密度花园洋房，河岸步道，柳树，水中倒影，傍晚暖色调 |
+| `zhengzao-project-3.jpg` | 项目案例3·北江国际 | `.project-card:nth-child(3) .project-img` | 城市 CBD 核心区的商业综合体，玻璃幕墙写字楼，底层商业裙楼，现代都市感 |
 
-文件路径：`public/images/zhengzao-hero.jpg` 等  
-替换方式：
-- hero 图：修改 `external/zhengzao.html` 中 `#hero-bg` 的 style，添加 `background-image: url('/images/zhengzao-hero.jpg')`
-- about 图：修改 `external/zhengzao.html` 中 `.about-img-placeholder` 的 style
-- 项目图：分别修改对应 `.project-img` 的 `background-image`
+替换方式：直接在各元素的 style 中用 `background: url('/images/xxx.jpg') center center / cover no-repeat;`
 
 ---
 

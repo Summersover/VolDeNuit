@@ -253,18 +253,19 @@ a:hover { color: #C00; text-decoration: underline; }
 
 /* ---- 页脚 ---- */
 #footer {
-  background: #333;
-  color: #AAA;
+  background: #FFF8E1;
+  border-top: 1px solid #E8D8A0;
+  color: #8A7A5A;
   text-align: center;
   padding: 20px;
   font-size: 12px;
   line-height: 2;
 }
 
-.footer-links a { color: #AAA !important; margin: 0 4px; }
-.footer-links a:hover { color: #FFF !important; }
+.footer-links a { color: #8A7A5A !important; margin: 0 4px; }
+.footer-links a:hover { color: #5A4A30 !important; }
 
-.footer-copy { color: #777; margin-top: 4px; }
+.footer-copy { color: #AA9A7A; margin-top: 4px; }
 
 /* ---- 全局页面进度标签（新闻页也有） ---- */
 #page-counter {

@@ -35,6 +35,15 @@ function rewriteHtml(filePath) {
   // data-route="/route/..." → data-route="/VolDeNuit/route/..."
   html = html.replace(/(data-route\s*=\s*)"\//gi, (match, pre) => `${pre}"${base}`)
 
+  // meta refresh: content="0;url=/route/..." → content="0;url=/VolDeNuit/route/..."
+  html = html.replace(/(content=["']\d+;url\s*=\s*)\//gi, (match, pre) => `${pre}${base}`)
+
+  // inline <script> window.location.replace('/route/...')
+  html = html.replace(/window\.location\.(?:replace|href)\s*\(?\s*'(\/[^']+)'/g, (match, path) => {
+    if (isRoutePath(path)) return match.replace(`'${path}'`, `'${prefixPath(path)}'`)
+    return match
+  })
+
   if (html !== original) {
     writeFileSync(filePath, html, 'utf-8')
     console.log(`  ✓ ${filePath.replace(/\\/g, '/')}`)
@@ -48,6 +57,12 @@ function rewriteJs(filePath) {
   // 改写 window.open("/route/...", ...) 中的路径
   code = code.replace(/window\.open\("(\/[^"]+)"(\s*(?:,|\)))/g, (match, path, rest) => {
     if (isRoutePath(path)) return `window.open("${prefixPath(path)}"${rest}`
+    return match
+  })
+
+  // 改写 window.location.href = '/route/...'
+  code = code.replace(/window\.location\.href\s*=\s*'(\/[^']+)'/g, (match, path) => {
+    if (isRoutePath(path)) return match.replace(`'${path}'`, `'${prefixPath(path)}'`)
     return match
   })
 
