@@ -23,7 +23,7 @@ const PASSWORD_C = '19930629'
 const PASSWORD_B = '道路一旦开辟，就不能不去追寻。'
 
 function normalizePw(val: string): string {
-  return val.replace(/\s+/g, '').toLowerCase()
+  return val.replace(/[\s，。！？、；：""''【】「」『』《》（）·…—\-.,;:!?()\[\]{}'"\/\\_@#$%^&*+=<>`~|·]/g, '').toLowerCase()
 }
 
 function matchPw(input: string, target: string): boolean {

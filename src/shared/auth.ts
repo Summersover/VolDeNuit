@@ -8,7 +8,7 @@ const PASSWORD_HASHES: Record<PasswordId, string> = {
   A: '76e3531f29eac204da3ef51c718be2ad2ff856fed09d0d1bd3e8a0a4238932df', // "Voldenuit"（去空格后）
   B: '4c6f6b6d6cbc7e78a1ffec07978e50234a7209eaa36b209e6e34c2fa5849c2bf', // "道路一旦开辟，就不能不去追寻。"
   C: '90ce96c1048ff254e703c7fac444af26ba49bacc276b5e8c23b619681bb1900e', // 19930629（站长1993年6月29日生）
-  D: 'a8b98aee4f538c20a90694235c853a347f05627cf917115c6ea01de1216dea4b', // sbire@zhengzao.com.cn
+  D: 'a40519eb435d6326c993970894700fcffcc3d869b525e16d2ee1427f4c2057e6', // sbire@zhengzao.com.cn
   E: '374013a250377c86e6ec3543fa896ac4b621fc115aa49dbb4346ae4fc10f6ea2', // 20160924（隼被杀日期）
   F: 'a73d2f1eb05016f305f22794f540ec6db39bb288e1743889a64490b80805a379', // 513431141533452444（密码A经波利比奥斯5×5加密）
 }

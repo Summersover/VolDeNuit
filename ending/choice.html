@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>抉择</title>
+  <link rel="stylesheet" href="/src/pages/ending/choice.css" />
+</head>
+<body>
+
+<div id="choice-area">
+  <p class="choice-prompt">天色渐暗。</p>
+  <p class="choice-desc">你手里是所有证据。你要怎么做？</p>
+  <div class="choice-buttons">
+    <a href="/ending/disclose" class="choice-btn choice-btn-disclose">
+      <span class="choice-label">公之于众</span>
+      <span class="choice-desc-small">将真相尽可能发出去</span>
+    </a>
+    <a href="/ending/silence" class="choice-btn choice-btn-silence">
+      <span class="choice-label">保持沉默</span>
+      <span class="choice-desc-small">关掉页面，当作没来过</span>
+    </a>
+  </div>
+</div>
+
+<script type="module" src="/src/pages/ending/choice.ts"></script>
+
+<div id="page-counter">28/30</div>
+
+</body>
+</html>

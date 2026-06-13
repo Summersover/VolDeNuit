@@ -1,0 +1,111 @@
+/* ============================================================
+   抉择页面
+   全黑背景 · 居中按钮
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #B8C4D0;
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, sans-serif;
+}
+
+#choice-area {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.choice-prompt {
+  font-size: 13px;
+  color: #5A6A7A;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.choice-desc {
+  font-size: 15px;
+  color: #8A9AAA;
+  margin-bottom: 24px;
+  font-weight: normal;
+}
+
+.choice-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.choice-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 200px;
+  padding: 24px 20px;
+  border: 1px solid #4A6A7A;
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.choice-btn:hover {
+  border-color: #6A8A9A;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.choice-btn-disclose:hover {
+  border-color: #D09040;
+  background: rgba(200, 140, 60, 0.08);
+}
+
+.choice-btn-silence:hover {
+  border-color: #40708A;
+  background: rgba(30, 65, 100, 0.12);
+}
+
+.choice-label {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.choice-btn-disclose .choice-label {
+  color: #D8C8A0;
+}
+
+.choice-btn-silence .choice-label {
+  color: #2C5F7A;
+}
+
+.choice-desc-small {
+  font-size: 11px;
+  color: #5A6A7A;
+  letter-spacing: 1px;
+}
+
+/* ---- 页码 ---- */
+#page-counter {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: rgba(200, 180, 140, 0.2);
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+}

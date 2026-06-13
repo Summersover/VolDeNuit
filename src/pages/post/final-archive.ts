@@ -187,41 +187,10 @@ function renderMonitorLog(): void {
   currentLine.textContent = `${ts} — 新访客 IP ${ip} → 当前位置：最终档案`
 }
 
-function showChoice(section: HTMLElement): void {
+function showChoice(_section: HTMLElement): void {
   setState('completed', true)
   addPathLog('最终档案 → 进入抉择')
-
-  // 创建全屏渐暗遮罩（5秒缓慢压暗）
-  const fadeOverlay = document.createElement('div')
-  fadeOverlay.id = 'fade-to-black'
-  Object.assign(fadeOverlay.style, {
-    position: 'fixed',
-    inset: '0',
-    background: '#000',
-    zIndex: '9998',
-    opacity: '0',
-    transition: 'opacity 5s ease-out',
-    pointerEvents: 'none',
-  })
-  document.body.appendChild(fadeOverlay)
-
-  // 先压暗 container
-  const container = document.getElementById('container')!
-  container.style.transition = 'filter 5s ease-out, opacity 5s ease-out'
-  container.style.filter = 'brightness(0.15) contrast(1.3)'
-
-  // 触发渐暗
-  requestAnimationFrame(() => {
-    fadeOverlay.style.opacity = '1'
-  })
-
-  // 渐暗完成后显示抉择
-  setTimeout(() => {
-    container.style.filter = 'brightness(0)'
-    container.style.opacity = '0'
-    section.classList.remove('hidden')
-    section.style.animation = 'fadeIn 1.2s ease-out'
-  }, 5200)
+  window.open('/ending/choice.html', '_blank')
 }
 
 /* ============================================================
@@ -230,9 +199,63 @@ function showChoice(section: HTMLElement): void {
 
 function init(): void {
   addPathLog('进入最终档案')
+
+  // 密码D守卫：未解锁则弹出密码输入框
+  const pwD = getState('pw_d')
+  if (!pwD) {
+    showPasswordGuard()
+    initSearch()
+    window.scrollTo(0, 0)
+    return
+  }
+
   initSearch()
   initFlow()
   window.scrollTo(0, 0)
+}
+
+async function showPasswordGuard(): Promise<void> {
+  const overlay = document.getElementById('password-overlay')
+  if (!overlay) return
+  overlay.classList.remove('hidden')
+
+  const input = document.getElementById('password-input') as HTMLInputElement
+  const error = document.getElementById('password-error')!
+  const prompt = document.getElementById('password-prompt')!
+
+  prompt.textContent = '此页面需要密码才能访问'
+  error.textContent = '密码错误'
+  error.classList.add('hidden')
+  input.value = ''
+  input.focus()
+
+  const { checkPassword } = await import('../../shared/auth')
+
+  async function verify(): Promise<void> {
+    const ok = await checkPassword('D', input.value)
+    if (ok) {
+      overlay.classList.add('hidden')
+      setState('pw_d', true)
+      addPathLog('密码D验证成功 → 最终档案')
+      initFlow()
+    } else {
+      error.textContent = '密码错误。提示：拼合邮箱地址'
+      error.classList.remove('hidden')
+      input.value = ''
+      input.focus()
+    }
+  }
+
+  const confirmBtn = document.getElementById('password-confirm')!
+  const cancelBtn = document.getElementById('password-cancel')!
+  const newConfirm = confirmBtn.cloneNode(true) as HTMLButtonElement
+  const newCancel = cancelBtn.cloneNode(true) as HTMLButtonElement
+  confirmBtn.parentNode!.replaceChild(newConfirm, confirmBtn)
+  cancelBtn.parentNode!.replaceChild(newCancel, cancelBtn)
+
+  newConfirm.addEventListener('click', verify)
+  newCancel.addEventListener('click', () => overlay.classList.add('hidden'))
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') verify() })
 }
 
 document.addEventListener('DOMContentLoaded', init)

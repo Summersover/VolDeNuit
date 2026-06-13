@@ -1,16 +1,13 @@
 /**
- * 站长多大了 - 页面⑨
+ * 徐天的回忆 — extra7
  * 夜航论坛 · 候机室版块
- * "站长多大了"
- *
- * 功能：搜索栏交互、路径追踪、密码C线索
- * 与解谜链对齐：本页面为序号 ⑨，右下角显示 9/30。
+ * 草稿 · 未发布
  */
 
-import '../../shared/state'
-import { addPathLog, addSearchHistory, removeSearchHistory } from '../../shared/state'
-import { search as doSearch, getSearchHistory } from '../../shared/search'
-import type { SearchResult } from '../../shared/types'
+import '../shared/state'
+import { addPathLog, addSearchHistory, removeSearchHistory } from '../shared/state'
+import { search as doSearch, getSearchHistory } from '../shared/search'
+import type { SearchResult } from '../shared/types'
 
 /* ============================================================
    搜索

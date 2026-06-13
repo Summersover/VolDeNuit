@@ -108,7 +108,7 @@ function renderThreads(): void {
     return `<tr class="${rowClass}">
       <td class="td-status"><span class="${iconClass}">${icon}</span></td>
       <td class="td-title">
-        <a class="thread-link clickable-highlight"
+        <a class="thread-link"
            data-id="${t.id}"
            data-route="${t.route}"
            data-pw-id="${t.requiredPassword}"

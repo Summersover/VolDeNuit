@@ -73,7 +73,7 @@ const NORMAL_SEARCHES: SearchEntry[] = [
   {
     keywords: ['Vega'],
     route: '/post/favorite-sentence',
-    label: '大家最喜欢的句子（Vega在该帖中出现）',
+    label: '大家最喜欢的句子（用户Vega存在回复）',
   },
 ]
 
