@@ -139,6 +139,7 @@ function renderThreads(): void {
           const stateKey = ('pw_' + pwId.toLowerCase()) as 'pw_e' | 'pw_f'
           unlock(stateKey)
           addPathLog(`盲区 → 密码${pwId}解锁`)
+          window.open(route, '_blank')
         })
       }
     })
