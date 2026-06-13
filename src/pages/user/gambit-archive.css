@@ -1,0 +1,840 @@
+/* ============================================================
+   夜航论坛 - Gambit 档案页（页面⑯）
+   配色：朴素文档风格 · 米灰底色 · 私信蓝灰区分
+   对应解谜链序号 ⑯，右下角显示 16/30
+   ============================================================ */
+
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', '宋体', SimSun, Tahoma, Arial, sans-serif;
+  background: #05080C;
+  color: #9AABB8;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: #5A8AAA;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #E0B040;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #406070;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---- Layout ---- */
+#container {
+  width: 100%;
+  max-width: 1280px;
+  min-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #0A0F18;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Header ---- */
+#header {
+  background: linear-gradient(180deg, #0A0E18 0%, #0E1525 40%, #121C2E 100%);
+  border-bottom: 1px solid #1A283A;
+}
+
+#header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px 12px;
+}
+
+#logo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.logo-night {
+  font-size: 28px;
+  font-weight: bold;
+  color: #E8DCC4;
+  text-shadow: 0 0 12px rgba(200, 170, 120, 0.15);
+  letter-spacing: 4px;
+}
+
+.logo-sub {
+  font-size: 13px;
+  color: #4A6A7A;
+  font-weight: normal;
+}
+
+/* ---- Header Search ---- */
+#header-search {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+#header-search input {
+  width: 200px;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid #1A283A;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  background: #0E1520;
+  color: #9AABB8;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#header-search input::placeholder {
+  color: #3A4A5A;
+}
+
+#header-search input:focus {
+  background: #121C2A;
+  border-color: #2A4060;
+}
+
+#header-search button {
+  height: 28px;
+  padding: 0 14px;
+  border: 1px solid #1A283A;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #1A283A 0%, #0E1525 100%);
+  color: #9AABB8;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+#header-search button:hover {
+  background: linear-gradient(180deg, #2A4060 0%, #1A283A 100%);
+  color: #E8DCC4;
+}
+
+/* ---- Navigation ---- */
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 34px;
+  background: linear-gradient(180deg, #080C14 0%, #0C101C 100%);
+  border-top: 1px solid #121C2E;
+}
+
+#nav ul {
+  display: flex;
+  gap: 0;
+  height: 100%;
+}
+
+#nav ul li {
+  position: relative;
+}
+
+#nav ul li a {
+  display: block;
+  padding: 0 18px;
+  height: 34px;
+  line-height: 34px;
+  color: #4A6A7A;
+  font-size: 13px;
+  font-weight: bold;
+  border-right: 1px solid #121C2E;
+  transition: color 0.12s, background 0.12s;
+}
+
+#nav ul li a:hover {
+  color: #E0B040;
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+}
+
+#nav-welcome {
+  color: #3A5A6A;
+  font-size: 12px;
+  padding-right: 4px;
+}
+
+#nav-welcome strong {
+  color: #6A8AAA;
+  font-weight: normal;
+}
+
+/* ---- Breadcrumb ---- */
+#breadcrumb {
+  padding: 8px 24px;
+  font-size: 13px;
+  color: #4A6A7A;
+  background: #0C111C;
+  border-bottom: 1px solid #1A283A;
+  display: flex;
+  align-items: center;
+}
+
+#breadcrumb .sep {
+  margin: 0 8px;
+  color: #2A3A4A;
+}
+
+#breadcrumb a {
+  color: #5A8AAA;
+}
+
+#breadcrumb .current {
+  color: #8AAAC0;
+}
+
+/* ---- Main Content ---- */
+#main {
+  flex: 1;
+  padding: 24px 24px 32px;
+}
+
+/* ============================================================
+   档案标题
+   ============================================================ */
+
+#archive-header {
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #1A283A;
+}
+
+#archive-title {
+  font-size: 22px;
+  color: #D0C8B8;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.archive-subtitle {
+  font-size: 12px;
+  color: #4A6A7A;
+  font-style: italic;
+}
+
+/* ============================================================
+   文件列表（档案首页）
+   ============================================================ */
+
+#file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 20px;
+}
+
+.file-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #0E1622;
+  border: 1px solid #1A283A;
+  text-decoration: none;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.file-entry:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.file-entry:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.file-entry:only-child {
+  border-radius: 4px;
+}
+
+.file-entry:hover {
+  background: #121C2A;
+  border-color: #2A4060;
+  text-decoration: none;
+}
+
+.file-entry-icon {
+  font-size: 20px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.file-entry-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-entry-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #D0C8B8;
+  transition: color 0.12s;
+}
+
+.file-entry:hover .file-entry-title {
+  color: #E0B040;
+}
+
+.file-entry-desc {
+  font-size: 11px;
+  color: #4A6A7A;
+}
+
+.file-entry-arrow {
+  font-size: 18px;
+  color: #3A5A6A;
+  flex-shrink: 0;
+  transition: color 0.12s;
+}
+
+.file-entry:hover .file-entry-arrow {
+  color: #E0B040;
+}
+
+/* ============================================================
+   文件详情页
+   ============================================================ */
+
+.file-detail {
+  margin-bottom: 20px;
+}
+
+.file-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #0E1622;
+  border: 1px solid #1A283A;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  font-size: 14px;
+}
+
+.file-detail-icon {
+  font-size: 18px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.file-detail-name {
+  color: #D0C8B8;
+  font-weight: bold;
+}
+
+.file-detail-meta {
+  margin-left: auto;
+  font-size: 11px;
+  color: #4A6A7A;
+}
+
+.file-detail-body {
+  padding: 24px 28px;
+  background: #0C1420;
+  border: 1px solid #1A283A;
+  border-radius: 0 0 4px 4px;
+}
+
+/* ============================================================
+   帖子布局（私信记录页）
+   ============================================================ */
+
+#post-area {
+  background: #0E1622;
+  border: 1px solid #1A283A;
+  margin-bottom: 12px;
+}
+
+#post-header {
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid #1A283A;
+}
+
+#post-title {
+  font-size: 18px;
+  color: #D0C8B8;
+  font-weight: bold;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+#post-meta {
+  font-size: 11px;
+  color: #4A6A7A;
+}
+
+.post {
+  border-bottom: 1px solid #1A283A;
+}
+
+.post:last-of-type {
+  border-bottom: none;
+}
+
+.post-inner {
+  display: flex;
+  min-height: 140px;
+}
+
+/* ---- Postbit ---- */
+.post-user {
+  width: 160px;
+  flex-shrink: 0;
+  background: #0A101A;
+  border-right: 1px solid #1A283A;
+  padding: 14px 8px 12px;
+  text-align: center;
+  font-size: 11px;
+  color: #3A5A6A;
+}
+
+.pui-avatar {
+  margin: 0 auto 8px;
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.pui-avatar-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #1A283A;
+  display: block;
+  object-fit: cover;
+}
+
+.pui-name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #5A8AAA;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.pui-usertitle {
+  font-size: 10px;
+  color: #4A6A7A;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.pui-level {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: bold;
+  color: #D0C8B8;
+  background: linear-gradient(180deg, #2A4060, #1A2A4A);
+  padding: 1px 7px;
+  margin-bottom: 6px;
+}
+
+.pui-stats {
+  text-align: left;
+  font-size: 10px;
+  color: #3A5A6A;
+  line-height: 1.9;
+  border-top: 1px solid #1A283A;
+  padding-top: 6px;
+  margin-top: 4px;
+}
+
+.pui-stats span {
+  color: #5A7A8A;
+  font-weight: 500;
+}
+
+.pui-online {
+  margin-top: 2px;
+}
+
+.offline-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #2A3A4A;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+/* ---- Post Content ---- */
+.post-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 6px;
+  font-size: 10px;
+  color: #3A5A6A;
+  border-bottom: 1px solid #1A283A;
+}
+
+.postnum {
+  font-weight: bold;
+  color: #2A3A4A;
+}
+
+.postdate {
+  color: #3A5A6A;
+}
+
+.post-body {
+  padding: 14px 20px 10px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #9AABB8;
+  flex: 1;
+}
+
+.post-foot {
+  padding: 8px 20px;
+  border-top: 1px solid #1A283A;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.rep-count {
+  font-size: 10px;
+  color: #2A3A4A;
+  margin-left: 6px;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+/* ---- Signature ---- */
+.post-signature {
+  margin: 8px 20px 0 180px;
+  padding: 8px 0 10px;
+  border-top: 1px solid #1A283A;
+  font-size: 11px;
+  color: #3A5A6A;
+  line-height: 1.5;
+}
+
+.post-signature-empty {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.sig-empty {
+  font-size: 10px;
+  color: #2A3A4A;
+  font-style: italic;
+}
+
+/* ============================================================
+   私信块（编辑记录二楼风格）
+   ============================================================ */
+
+.dm-block {
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  border-radius: 3px;
+}
+
+.dm-block:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dm-sender {
+  color: #7AA0C0;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.dm-text {
+  color: #B0C0D0;
+  padding-left: 8px;
+  border-left: 2px solid #2A4060;
+}
+
+.dm-last {
+  background: rgba(200, 80, 60, 0.08);
+}
+
+.dm-last .dm-text {
+  border-left-color: #C05040;
+}
+
+.dm-divider {
+  text-align: center;
+  font-size: 11px;
+  color: #3A5A6A;
+  margin: 10px 0;
+  position: relative;
+}
+
+.dm-divider span {
+  background: #0C1420;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.dm-divider::after {
+  content: '';
+  display: block;
+  border-top: 1px solid #1A283A;
+  margin-top: -7px;
+  z-index: 0;
+}
+
+/* ============================================================
+   自白信
+   ============================================================ */
+
+.confession-letter {
+  max-width: 560px;
+  margin: 0 auto;
+  font-family: 'Georgia', 'Noto Serif SC', serif;
+  color: #C0C8D0;
+}
+
+.confession-date {
+  text-align: right;
+  font-size: 13px;
+  color: #5A7A8A;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.confession-letter p {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 14px;
+  text-indent: 2em;
+}
+
+.confession-sign {
+  text-align: right;
+  font-size: 14px;
+  color: #8A9AAA;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  text-indent: 0 !important;
+  font-style: italic;
+}
+
+.delta-stamp {
+  text-align: center;
+  font-size: 36px;
+  color: rgba(100, 120, 140, 0.25);
+  margin-top: 16px;
+  letter-spacing: 0;
+  user-select: none;
+  font-family: 'Georgia', serif;
+}
+
+/* ---- 恐吓信图片 ---- */
+.file-detail-body-img {
+  padding: 0;
+  text-align: center;
+}
+
+.threat-letter-img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 0 0 4px 4px;
+}
+
+/* ============================================================
+   返回链接
+   ============================================================ */
+
+#back-area {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #1A283A;
+}
+
+.back-link {
+  font-size: 13px;
+  color: #5A8AAA;
+}
+
+.back-link:hover {
+  color: #E0B040;
+}
+
+/* ============================================================
+   搜索面板
+   ============================================================ */
+
+#search-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 320px;
+  background: #121C2A;
+  border: 1px solid #1A283A;
+  border-top: 2px solid #3A6A8A;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+#search-panel.hidden {
+  display: none;
+}
+
+.panel-header {
+  padding: 8px 12px;
+  background: #0E1622;
+  border-bottom: 1px solid #1A283A;
+  font-size: 12px;
+  color: #5A7A8A;
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-header a {
+  font-size: 12px;
+  color: #4A6A7A;
+}
+
+.panel-header a:hover {
+  color: #E0B040;
+}
+
+#history-list li,
+#result-body {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #1A283A;
+  transition: background 0.1s;
+}
+
+#history-list li:hover,
+#result-body:hover {
+  background: #16202E;
+}
+
+#result-body {
+  color: #5A8AAA;
+}
+
+#result-body .result-label {
+  color: #B8C4D0;
+}
+
+#result-body .result-type {
+  font-size: 11px;
+  color: #4A6A7A;
+  margin-left: 6px;
+}
+
+#history-list li .history-term {
+  color: #8AAAC0;
+}
+
+/* ---- Utility ---- */
+.hidden {
+  display: none !important;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C111C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A283A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2A3A4A;
+}
+
+/* ====== 全局页面进度标签 ====== */
+#page-counter-fixed {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: rgba(232, 220, 196, 0.25);
+  background: rgba(5, 8, 12, 0.6);
+  border: 1px solid rgba(232, 220, 196, 0.12);
+  border-radius: 4px;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  user-select: none;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+
+/* ---- Footer ---- */
+#footer {
+  padding: 16px 24px;
+  background: #0C111C;
+  border-top: 1px solid #1A283A;
+  text-align: center;
+  font-size: 12px;
+  color: #3A5A6A;
+  line-height: 2;
+}
+
+.footer-links a {
+  color: #4A6A7A;
+  margin: 0 2px;
+}
+
+.footer-copy {
+  color: #2A3A4A;
+}

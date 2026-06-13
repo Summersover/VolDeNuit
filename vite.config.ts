@@ -43,6 +43,9 @@ export default defineConfig({
         flightPath: resolve(__dirname, 'flight-path/index.html'),
         statement: resolve(__dirname, 'statement/index.html'),
         memoirXutian: resolve(__dirname, 'memoir/xutian.html'),
+        gambitArchive: resolve(__dirname, 'user/gambit/archive.html'),
+        gambitPm: resolve(__dirname, 'user/gambit/pm.html'),
+        gambitConfession: resolve(__dirname, 'user/gambit/confession.html'),
       },
       output: {
         entryFileNames: 'assets/[name].[hash].js',

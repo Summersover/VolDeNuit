@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>恐吓信 - Gambit · 档案 - 夜航论坛</title>
+  <link rel="stylesheet" href="/src/pages/user/gambit-archive.css" />
+</head>
+<body>
+
+<div id="container">
+  <div id="header">
+    <div id="header-top">
+      <div id="logo">
+        <span class="logo-night">夜航</span>
+        <span class="logo-sub">—— 飞行员的夜航手册</span>
+      </div>
+      <div id="header-search">
+        <input type="text" id="search-input" placeholder="搜索帖子、用户…" maxlength="50" />
+        <button id="search-btn">搜索</button>
+        <div id="search-panel" class="hidden">
+          <div id="search-history">
+            <div class="panel-header">搜索历史 <a href="#" id="clear-history">清空</a></div>
+            <ul id="history-list"></ul>
+          </div>
+          <div id="search-result" class="hidden">
+            <div class="panel-header">搜索结果</div>
+            <div id="result-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="nav">
+      <ul>
+        <li><a href="/board/tower">塔台</a></li>
+        <li><a href="/board/lounge">候机室</a></li>
+        <li><a href="/board/deepspace">深空</a></li>
+        <li><a href="/board/blindzone">盲区</a></li>
+      </ul>
+      <span id="nav-welcome">欢迎您，<strong>访客</strong></span>
+    </div>
+  </div>
+
+  <div id="breadcrumb">
+    <a href="/board/deepspace">深空——怪谈区</a>
+    <span class="sep">›</span>
+    <a href="javascript:void(0)" class="bc-archive">用户中心 · Gambit</a>
+    <span class="sep">›</span>
+    <a href="javascript:void(0)" class="bc-archive">档案</a>
+    <span class="sep">›</span>
+    <span class="current">恐吓信</span>
+  </div>
+
+  <div id="main">
+
+    <div class="file-detail">
+      <div class="file-detail-header">
+        <span class="file-detail-icon">📄</span>
+        <span class="file-detail-name">文件二：恐吓信</span>
+      </div>
+
+      <div class="file-detail-body file-detail-body-img">
+        <img class="threat-letter-img" src="/images/letter.png" alt="恐吓信" />
+      </div>
+    </div>
+
+    <div id="back-area">
+      <a href="javascript:void(0)" class="back-link" id="back-to-archive">‹ 返回档案列表</a>
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <div class="footer-links">
+      <a href="/board/tower">塔台</a> · <a href="/board/lounge">候机室</a> ·
+      <a href="/board/deepspace">深空</a> · <a href="/board/blindzone">盲区</a>
+    </div>
+    <div class="footer-copy">
+      &copy; 2014-2016 夜航. All rights reserved. 「 第三航次 」
+    </div>
+  </div>
+</div>
+
+<div id="page-counter-fixed">18/30</div>
+
+<script type="module" src="/src/pages/user/gambit-archive.ts"></script>
+</body>
+</html>
