@@ -26,6 +26,9 @@ jobs:
 
       - run: npx vite build
 
+      - name: Rewrite internal paths for base prefix
+        run: node scripts/base-path-rewrite.mjs
+
       - uses: actions/configure-pages@v4
 
       - name: Upload artifact
