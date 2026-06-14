@@ -128,22 +128,36 @@ function escapeHtml(str: string): string {
    初始化
    ============================================================ */
 
+function initPhotoClick(): void {
+  const photoContainer = document.getElementById('moon-photo-cropped')
+  if (!photoContainer) return
+  if (photoContainer.classList.contains('can-click')) return // 已绑定，跳过
+
+  const visitedEditLog = getState('edit_log_visited')
+  if (visitedEditLog) {
+    photoContainer.classList.add('can-click')
+    photoContainer.addEventListener('click', () => {
+      addPathLog('月亮照片 → 放大查看')
+      document.getElementById('photo-viewer')!.classList.remove('hidden')
+    })
+  }
+}
+
 function init(): void {
   addPathLog('进入月亮照片帖')
   initSearch()
 
-  // 月亮照片点击查看
-  const photoContainer = document.getElementById('moon-photo-cropped')
-  if (photoContainer) {
-    const visitedEditLog = getState('edit_log_visited')
-    if (visitedEditLog) {
-      photoContainer.classList.add('can-click')
-      photoContainer.addEventListener('click', () => {
-        addPathLog('月亮照片 → 放大查看')
-        document.getElementById('photo-viewer')!.classList.remove('hidden')
-      })
-    }
-  }
+  initPhotoClick()
+
+  // 跨标签页同步：当另一标签页中 edit_log_visited 变化时自动启用
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'nf_edit_log_visited') initPhotoClick()
+  })
+
+  // 标签页切换回来时重新检查（用户可能在另一标签页解锁后切回来）
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) initPhotoClick()
+  })
 
   // 查看器关闭
   const viewer = document.getElementById('photo-viewer')
